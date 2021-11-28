@@ -6,6 +6,7 @@ public class Dynamic : MonoBehaviour
 {
     public float JumpPower= 10;
     public bool isJump = false;
+    public int Score = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +39,11 @@ public class Dynamic : MonoBehaviour
         }
     }
 
+    private void OnGUI()
+    {
+        GUI.Box(new Rect(0, 0, 100, 20), "Score:" + Score);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isJump = false;
@@ -47,7 +53,12 @@ public class Dynamic : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "cherry")
+        //if (collision.gameObject.name == "cherry")
+        //{
+        //    Score += 10;
+        //    Destroy(collision.gameObject);
+        //}
+        if (collision.gameObject.tag == "Object")
         {
             Destroy(collision.gameObject);
         }
