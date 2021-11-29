@@ -37,6 +37,11 @@ public class Dynamic : MonoBehaviour
                 isJump = true;
             }
         }
+
+        if(transform.position.y < -4)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnGUI()
