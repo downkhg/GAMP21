@@ -19,6 +19,7 @@ public class Responner : MonoBehaviour
         if(objPlayer == null)
         {
             objPlayer = Instantiate(prefabPlayer);
+            objPlayer.transform.position = this.gameObject.transform.position;
         }
     }
 }
