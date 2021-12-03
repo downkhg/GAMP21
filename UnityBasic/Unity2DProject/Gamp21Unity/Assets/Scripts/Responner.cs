@@ -7,6 +7,20 @@ public class Responner : MonoBehaviour
 {
     public GameObject prefabPlayer;
     public GameObject objPlayer = null;
+    public float Time = 1;
+    public bool isRespon = false;
+
+    IEnumerator ProcessTimer()
+    {
+        Debug.Log("ProcessTimer 1");
+        isRespon = true;
+        yield return new WaitForSeconds(Time);
+        objPlayer = Instantiate(prefabPlayer);
+        objPlayer.transform.position = this.gameObject.transform.position;
+        isRespon = false;
+        Debug.Log("ProcessTimer 2");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +30,9 @@ public class Responner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(objPlayer == null)
+        if(objPlayer == null && isRespon == false)
         {
-            objPlayer = Instantiate(prefabPlayer);
-            objPlayer.transform.position = this.gameObject.transform.position;
+            StartCoroutine(ProcessTimer());
         }
     }
 }

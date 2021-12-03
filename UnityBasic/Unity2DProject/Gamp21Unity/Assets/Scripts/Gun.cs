@@ -5,7 +5,6 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
     public GameObject prefabBullet;
-    public GameObject objBullet;
     public float ShotPower;
 
     public void Shot()
@@ -13,6 +12,7 @@ public class Gun : MonoBehaviour
         GameObject copyBullet = Instantiate(prefabBullet); 
         Rigidbody2D rigidbody = copyBullet.GetComponent<Rigidbody2D>();
         rigidbody.AddForce(Vector3.right * ShotPower);
+        copyBullet.transform.position = this.transform.position;
     }
 
     // Start is called before the first frame update
