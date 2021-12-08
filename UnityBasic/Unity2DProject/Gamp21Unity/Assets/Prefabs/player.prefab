@@ -101,6 +101,7 @@ MonoBehaviour:
   JumpPower: 200
   isJump: 0
   Score: 0
+  gun: {fileID: 1854333783427439035}
 --- !u!58 &7408771729379172538
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -239,3 +240,15 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5940941428607126455}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1854333783427439035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5461067550797681164, guid: e646a0169293451418def75379a6d8f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 5940941428607126455}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aac71dcf8247d24399b0393bd8d607a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

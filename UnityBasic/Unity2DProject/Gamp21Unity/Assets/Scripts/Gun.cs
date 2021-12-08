@@ -7,24 +7,11 @@ public class Gun : MonoBehaviour
     public GameObject prefabBullet;
     public float ShotPower;
 
-    public void Shot()
+    public void Shot(Vector3 dir)
     {
         GameObject copyBullet = Instantiate(prefabBullet); 
         Rigidbody2D rigidbody = copyBullet.GetComponent<Rigidbody2D>();
-        rigidbody.AddForce(Vector3.right * ShotPower);
+        rigidbody.AddForce(dir * ShotPower);
         copyBullet.transform.position = this.transform.position;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            Shot();
     }
 }

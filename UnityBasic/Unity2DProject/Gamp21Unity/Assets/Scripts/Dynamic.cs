@@ -7,27 +7,31 @@ public class Dynamic : MonoBehaviour
     public float JumpPower= 10;
     public bool isJump = false;
     public int Score = 0;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+
+    public Gun gun;
+    public Vector3 dir = Vector3.right;
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.RightArrow))
+        {
             transform.position += Vector3.right * Time.deltaTime;
+            dir = Vector3.right;
+        }
 
         if (Input.GetKey(KeyCode.LeftArrow))
+        {
             transform.position += Vector3.left * Time.deltaTime;
+            dir = Vector3.left;
+        }
 
         if (Input.GetKey(KeyCode.DownArrow))
         {
             //transform.position += Vector3.down * Time.deltaTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (isJump == false)
             {
@@ -38,7 +42,12 @@ public class Dynamic : MonoBehaviour
             }
         }
 
-        if(transform.position.y < -4)
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            gun.Shot(dir);
+        }
+
+        if (transform.position.y < -4)
         {
             Destroy(this.gameObject);
         }

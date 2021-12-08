@@ -1320,6 +1320,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &779419715 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1854333783427439035, guid: 476467a7d0a6b144cbe5a98ce156ccec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1031182654}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7aac71dcf8247d24399b0393bd8d607a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &817128623
 GameObject:
   m_ObjectHideFlags: 0
@@ -1722,6 +1734,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7408771729379172539, guid: 476467a7d0a6b144cbe5a98ce156ccec,
+        type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 779419715}
     - target: {fileID: 7408771729379172540, guid: 476467a7d0a6b144cbe5a98ce156ccec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1785,7 +1802,7 @@ PrefabInstance:
     - target: {fileID: 7408771729379172540, guid: 476467a7d0a6b144cbe5a98ce156ccec,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7408771729379172541, guid: 476467a7d0a6b144cbe5a98ce156ccec,
         type: 3}
