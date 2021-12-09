@@ -7,6 +7,7 @@ public class Dynamic : MonoBehaviour
     public float JumpPower= 10;
     public bool isJump = false;
     public int Score = 0;
+    public float Speed = 1;
 
     public Gun gun;
     public Vector3 dir = Vector3.right;
@@ -16,13 +17,13 @@ public class Dynamic : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.position += Vector3.right * Time.deltaTime;
+            transform.position += Vector3.right * Speed * Time.deltaTime;
             dir = Vector3.right;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.position += Vector3.left * Time.deltaTime;
+            transform.position += Vector3.left * Speed * Time.deltaTime;
             dir = Vector3.left;
         }
 
@@ -39,6 +40,7 @@ public class Dynamic : MonoBehaviour
                 rigidbody2D.AddForce(Vector3.up * JumpPower);
                 //transform.position += Vector3.up * Time.deltaTime;
                 isJump = true;
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             }
         }
 
@@ -61,8 +63,15 @@ public class Dynamic : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isJump = false;
+       
         
         Debug.Log("OnCollisionEnter2D:" + collision.gameObject.name);
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        //if(collision.gameObject.name == "Plaform")
+        //    GetComponent<Rigidbody2D>().velocity = Vector2.zero;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -75,6 +84,7 @@ public class Dynamic : MonoBehaviour
         if (collision.gameObject.tag == "Object")
         {
             Destroy(collision.gameObject);
+            GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         }
     }
 }
