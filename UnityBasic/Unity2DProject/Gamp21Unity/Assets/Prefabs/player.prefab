@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7408771729379172542}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.124, y: 0.125, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1854333783427439012}
@@ -101,7 +101,9 @@ MonoBehaviour:
   JumpPower: 200
   isJump: 0
   Score: 0
+  Speed: 1
   gun: {fileID: 1854333783427439035}
+  dir: {x: 1, y: 0, z: 0}
 --- !u!58 &7408771729379172538
 CircleCollider2D:
   m_ObjectHideFlags: 0

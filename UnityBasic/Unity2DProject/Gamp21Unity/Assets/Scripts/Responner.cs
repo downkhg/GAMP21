@@ -12,13 +12,13 @@ public class Responner : MonoBehaviour
 
     IEnumerator ProcessTimer()
     {
-        Debug.Log("ProcessTimer 1");
+        //Debug.Log("ProcessTimer 1");
         isRespon = true;
         yield return new WaitForSeconds(Time);
         objPlayer = Instantiate(prefabPlayer);
         objPlayer.transform.position = this.gameObject.transform.position;
         isRespon = false;
-        Debug.Log("ProcessTimer 2");
+        //Debug.Log("ProcessTimer 2");
     }
 
     // Start is called before the first frame update

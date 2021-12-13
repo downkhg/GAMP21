@@ -18,12 +18,18 @@ public class Dynamic : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.position += Vector3.right * Speed * Time.deltaTime;
+            //transform.Rotate(Vector3.up * 0);
+            //transform.localRotation = Quaternion.Euler(Vector3.up * 0);
+            transform.localRotation = Quaternion.Euler(0, 0, 0);
             dir = Vector3.right;
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position += Vector3.left * Speed * Time.deltaTime;
+           //transform.Rotate(Vector3.up * 180);
+            //transform.localRotation = Quaternion.Euler(Vector3.up * 180);
+            transform.localRotation = Quaternion.Euler(0,180,0);
             dir = Vector3.left;
         }
 
