@@ -16,9 +16,9 @@ public class Eagle : MonoBehaviour
     private void FixedUpdate()
     {
         int nLayer = 1 << LayerMask.NameToLayer("Player");
-        Collider2D collider = 
-            Physics2D.OverlapCircle(this.transform.position, Site, nLayer);
-
+        Collider2D collider =
+            Physics2D.OverlapCircle(this.transform.position, Site);
+            //Physics2D.OverlapCircle(this.transform.position, Site, nLayer);
         if(collider)
         {
             objTarget = collider.gameObject;
@@ -36,8 +36,10 @@ public class Eagle : MonoBehaviour
             Vector3 vDir = vDist.normalized;
             float fDist = vDist.magnitude;
 
-            if(fDist > Time.deltaTime)
-                transform.position += vDir * Speed * Time.deltaTime;
+            float fMove = Speed * Time.deltaTime;
+
+            if (fDist > fMove)
+                transform.position += vDir * fMove;
         }
     }
 
