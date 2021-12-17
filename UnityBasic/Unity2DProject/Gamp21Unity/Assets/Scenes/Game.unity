@@ -2700,6 +2700,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: eagle
       objectReference: {fileID: 0}
+    - target: {fileID: 8806673601108252971, guid: 04a9a9291c7e1d94585b4cc50c578936,
+        type: 3}
+      propertyPath: objRespon
+      value: 
+      objectReference: {fileID: 1845123009}
+    - target: {fileID: 8806673601108252971, guid: 04a9a9291c7e1d94585b4cc50c578936,
+        type: 3}
+      propertyPath: objResponPoint
+      value: 
+      objectReference: {fileID: 1845123009}
+    - target: {fileID: 8806673601108252971, guid: 04a9a9291c7e1d94585b4cc50c578936,
+        type: 3}
+      propertyPath: objPatrolPoint
+      value: 
+      objectReference: {fileID: 247953317}
+    - target: {fileID: 8806673601108252971, guid: 04a9a9291c7e1d94585b4cc50c578936,
+        type: 3}
+      propertyPath: objTarget
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8806673601108252972, guid: 04a9a9291c7e1d94585b4cc50c578936,
         type: 3}
       propertyPath: m_SortingOrder

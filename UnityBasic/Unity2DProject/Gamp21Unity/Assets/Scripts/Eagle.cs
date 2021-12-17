@@ -7,26 +7,31 @@ public class Eagle : MonoBehaviour
     public GameObject objTarget;
     public float Speed;
     public float Site = 0.5f;
+    public GameObject objResponPoint;
+    public GameObject objPatrolPoint;
+    public bool isMove = false;
 
-    private void OnDrawGizmos()
+    void PatolProcess()
     {
-        Gizmos.DrawWireSphere(this.transform.position, Site);
-    }
-
-    private void FixedUpdate()
-    {
-        int nLayer = 1 << LayerMask.NameToLayer("Player");
-        Collider2D collider =
-            Physics2D.OverlapCircle(this.transform.position, Site);
-            //Physics2D.OverlapCircle(this.transform.position, Site, nLayer);
-        if(collider)
+        if (objTarget)
         {
-            objTarget = collider.gameObject;
+            if (isMove == false)
+            {
+                if (objTarget.name == objResponPoint.name)
+                {
+                    objTarget = objPatrolPoint;
+                    Debug.LogError(objPatrolPoint.name);
+                }
+                else if (objTarget.name == objPatrolPoint.name)
+                {
+                    objTarget = objResponPoint;
+                    Debug.LogError(objResponPoint.name);
+                }
+            }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void TargetTrackingProcess()
     {
         if (objTarget != null)
         {
@@ -39,10 +44,46 @@ public class Eagle : MonoBehaviour
             float fMove = Speed * Time.deltaTime;
 
             if (fDist > fMove)
+            {
                 transform.position += vDir * fMove;
+                isMove = true;
+            }
+            else
+            {
+                isMove = false;
+            }
+        }
+        else
+        {
+            objTarget = objResponPoint;
         }
     }
 
+    void Update()
+    {
+        TargetTrackingProcess();
+        PatolProcess();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(this.transform.position, Site);
+    }
+
+    private void FixedUpdate()
+    {
+        int nLayer = 1 << LayerMask.NameToLayer("Player");
+        Collider2D collider =
+            //Physics2D.OverlapCircle(this.transform.position, Site);
+            Physics2D.OverlapCircle(this.transform.position, Site, nLayer);
+        if(collider)
+        {
+            objTarget = collider.gameObject;
+        }
+    }
+
+    // Update is called once per frame
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("OnTriggerEnter2D:"+collision.gameObject.name);
