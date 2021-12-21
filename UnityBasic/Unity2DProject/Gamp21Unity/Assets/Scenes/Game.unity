@@ -669,7 +669,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &247953318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2186,6 +2186,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCameraTracker: {fileID: 1843240916}
   responnerPlayer: {fileID: 1667197827}
+  responnerEagle: {fileID: 1845123010}
+  responnerOpossum: {fileID: 247953318}
 --- !u!4 &1676476422
 Transform:
   m_ObjectHideFlags: 0
@@ -2631,6 +2633,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: opossum
       objectReference: {fileID: 0}
+    - target: {fileID: 2746136256820576165, guid: 4fb611a2214b0aa4893476eea189ddb9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2746136256820576167, guid: 4fb611a2214b0aa4893476eea189ddb9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2719,6 +2726,11 @@ PrefabInstance:
         type: 3}
       propertyPath: objTarget
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806673601108252971, guid: 04a9a9291c7e1d94585b4cc50c578936,
+        type: 3}
+      propertyPath: curState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8806673601108252972, guid: 04a9a9291c7e1d94585b4cc50c578936,
         type: 3}

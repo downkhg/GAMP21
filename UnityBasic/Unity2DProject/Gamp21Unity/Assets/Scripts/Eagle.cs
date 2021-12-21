@@ -11,6 +11,48 @@ public class Eagle : MonoBehaviour
     public GameObject objPatrolPoint;
     public bool isMove = false;
 
+    public enum E_AI_STATE {TRACKING, RETRUN, PATOL }
+    public E_AI_STATE curState = E_AI_STATE.RETRUN;
+
+    public void SetAIState(E_AI_STATE state)
+    {
+        if (curState == state) return;
+        Debug.Log("SetAIState:"+state);
+        switch(state)
+        {
+            case E_AI_STATE.TRACKING:
+                break;
+            case E_AI_STATE.RETRUN:
+                objTarget = objResponPoint;
+                break;
+            case E_AI_STATE.PATOL:
+                objTarget = objPatrolPoint;
+                break;
+        }
+        curState = state;
+    }
+
+    public void UpdateAIState()
+    {
+        switch (curState)
+        {
+            case E_AI_STATE.TRACKING:
+                TargetTrackingProcess();
+                if (objTarget == null)
+                    SetAIState(E_AI_STATE.RETRUN);
+                break;
+            case E_AI_STATE.RETRUN:
+                TargetTrackingProcess();
+                if (isMove == false)
+                    SetAIState(E_AI_STATE.PATOL);
+                break;
+            case E_AI_STATE.PATOL:
+                TargetTrackingProcess();
+                PatolProcess();
+                break;
+        }
+    }
+
     void PatolProcess()
     {
         if (objTarget)
@@ -20,12 +62,12 @@ public class Eagle : MonoBehaviour
                 if (objTarget.name == objResponPoint.name)
                 {
                     objTarget = objPatrolPoint;
-                    Debug.LogError(objPatrolPoint.name);
+                    //Debug.LogError(objPatrolPoint.name);
                 }
                 else if (objTarget.name == objPatrolPoint.name)
                 {
                     objTarget = objResponPoint;
-                    Debug.LogError(objResponPoint.name);
+                    //Debug.LogError(objResponPoint.name);
                 }
             }
         }
@@ -53,16 +95,35 @@ public class Eagle : MonoBehaviour
                 isMove = false;
             }
         }
-        else
+        //else
+        //{
+        //    objTarget = objResponPoint;
+        //}
+    }
+
+    void FindProcess()
+    {
+        int nLayer = 1 << LayerMask.NameToLayer("Player");
+        Collider2D collider =
+            //Physics2D.OverlapCircle(this.transform.position, Site);
+            Physics2D.OverlapCircle(this.transform.position, Site, nLayer);
+        if (collider)
         {
-            objTarget = objResponPoint;
+            objTarget = collider.gameObject;
+            SetAIState(E_AI_STATE.TRACKING);
         }
+    }
+
+    private void Start()
+    {
+        SetAIState(curState);
     }
 
     void Update()
     {
-        TargetTrackingProcess();
-        PatolProcess();
+        //TargetTrackingProcess();
+        //PatolProcess();
+        UpdateAIState();
     }
 
     private void OnDrawGizmos()
@@ -72,22 +133,15 @@ public class Eagle : MonoBehaviour
 
     private void FixedUpdate()
     {
-        int nLayer = 1 << LayerMask.NameToLayer("Player");
-        Collider2D collider =
-            //Physics2D.OverlapCircle(this.transform.position, Site);
-            Physics2D.OverlapCircle(this.transform.position, Site, nLayer);
-        if(collider)
-        {
-            objTarget = collider.gameObject;
-        }
+        FindProcess();
     }
 
     // Update is called once per frame
-   
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("OnTriggerEnter2D:"+collision.gameObject.name);
-        if(collision.gameObject.tag == "Player")
-            objTarget = collision.gameObject;
+        //Debug.Log("OnTriggerEnter2D:"+collision.gameObject.name);
+        if (collision.gameObject.tag == "Player")
+            Destroy(collision.gameObject);
     }
 }

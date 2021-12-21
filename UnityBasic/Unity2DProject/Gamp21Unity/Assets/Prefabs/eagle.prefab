@@ -98,6 +98,10 @@ MonoBehaviour:
   objTarget: {fileID: 0}
   Speed: 1
   Site: 0.5
+  objResponPoint: {fileID: 0}
+  objPatrolPoint: {fileID: 0}
+  isMove: 0
+  curState: 2
 --- !u!58 &8806673601108252974
 CircleCollider2D:
   m_ObjectHideFlags: 0

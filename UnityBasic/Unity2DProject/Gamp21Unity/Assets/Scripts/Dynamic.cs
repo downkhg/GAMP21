@@ -71,7 +71,7 @@ public class Dynamic : MonoBehaviour
         isJump = false;
        
         
-        Debug.Log("OnCollisionEnter2D:" + collision.gameObject.name);
+        //Debug.Log("OnCollisionEnter2D:" + collision.gameObject.name);
     }
 
     private void OnCollisionExit2D(Collision2D collision)

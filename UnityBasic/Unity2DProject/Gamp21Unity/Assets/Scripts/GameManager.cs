@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public CameraTracker mainCameraTracker;
     public Responner responnerPlayer;
+    public Responner responnerEagle;
+    public Responner responnerOpossum;
 
     void CameraTrackingTargetPlayerProcess()
     {
@@ -16,9 +18,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void EaglePointSetting()
+    {
+        if(responnerEagle.objPlayer)
+        {
+            Eagle eagle = responnerEagle.objPlayer.GetComponent<Eagle>();
+
+            if (eagle.objPatrolPoint == null && eagle.objResponPoint == null)
+            {
+                eagle.objPatrolPoint = responnerOpossum.gameObject;
+                eagle.objResponPoint = responnerEagle.gameObject;
+                eagle.SetAIState(Eagle.E_AI_STATE.RETRUN);
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         CameraTrackingTargetPlayerProcess();
+        EaglePointSetting();
     }
 }
