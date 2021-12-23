@@ -29,7 +29,14 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Monster")
-            Destroy(collision.gameObject);
+        if (collision.gameObject.tag == "Monster")
+        {
+            Player target = collision.gameObject.GetComponent<Player>();
+            Player attaker = 
+                GameManager.GetInstacne().responnerPlayer.objPlayer.GetComponent<Player>();
+
+            attaker.Attack(target);
+            //Destroy(collision.gameObject);
+        }
     }
 }

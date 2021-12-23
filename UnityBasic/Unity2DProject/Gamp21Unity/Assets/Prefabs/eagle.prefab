@@ -101,7 +101,7 @@ MonoBehaviour:
   objResponPoint: {fileID: 0}
   objPatrolPoint: {fileID: 0}
   isMove: 0
-  curState: 2
+  curState: 1
 --- !u!58 &8806673601108252974
 CircleCollider2D:
   m_ObjectHideFlags: 0

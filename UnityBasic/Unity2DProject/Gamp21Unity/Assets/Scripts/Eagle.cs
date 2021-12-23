@@ -11,8 +11,8 @@ public class Eagle : MonoBehaviour
     public GameObject objPatrolPoint;
     public bool isMove = false;
 
-    public enum E_AI_STATE {TRACKING, RETRUN, PATOL }
-    public E_AI_STATE curState = E_AI_STATE.RETRUN;
+    public enum E_AI_STATE {NONE = -1, TRACKING, RETRUN, PATOL }
+    public E_AI_STATE curState = E_AI_STATE.NONE;
 
     public void SetAIState(E_AI_STATE state)
     {
@@ -95,10 +95,10 @@ public class Eagle : MonoBehaviour
                 isMove = false;
             }
         }
-        //else
-        //{
-        //    objTarget = objResponPoint;
-        //}
+        else
+        {
+            objTarget = objResponPoint;
+        }
     }
 
     void FindProcess()
@@ -114,9 +114,14 @@ public class Eagle : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         SetAIState(curState);
+    }
+
+    private void Start()
+    {
+        //SetAIState(curState);
     }
 
     void Update()
@@ -142,6 +147,12 @@ public class Eagle : MonoBehaviour
     {
         //Debug.Log("OnTriggerEnter2D:"+collision.gameObject.name);
         if (collision.gameObject.tag == "Player")
-            Destroy(collision.gameObject);
+        {
+            Player target = collision.gameObject.GetComponent<Player>();
+            Player attaker = this.gameObject.GetComponent<Player>();
+
+            attaker.Attack(target);
+            //Destroy(collision.gameObject);
+        }
     }
 }

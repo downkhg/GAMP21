@@ -9,6 +9,18 @@ public class GameManager : MonoBehaviour
     public Responner responnerEagle;
     public Responner responnerOpossum;
 
+    static GameManager instance;
+    
+    public static GameManager GetInstacne()
+    {
+        return instance;
+    }
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void CameraTrackingTargetPlayerProcess()
     {
         if(mainCameraTracker.objTarget == null)
