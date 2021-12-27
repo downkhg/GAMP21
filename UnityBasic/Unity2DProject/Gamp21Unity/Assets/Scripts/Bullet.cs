@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public Player master;
     Vector3 vStart;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,8 +34,8 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Monster")
         {
             Player target = collision.gameObject.GetComponent<Player>();
-            Player attaker = 
-                GameManager.GetInstacne().responnerPlayer.objPlayer.GetComponent<Player>();
+            Player attaker = master;
+            //GameManager.GetInstacne().responnerPlayer.objPlayer.GetComponent<Player>();
 
             attaker.Attack(target);
             //Destroy(collision.gameObject);

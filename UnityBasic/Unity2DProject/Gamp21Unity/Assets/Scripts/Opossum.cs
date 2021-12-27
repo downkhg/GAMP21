@@ -18,7 +18,17 @@ public class Opossum : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
-            Destroy(collision.gameObject);
+        if (collision.gameObject.tag == "Player")
+        {
+            Player target = collision.gameObject.GetComponent<Player>();
+            Player attaker = this.gameObject.GetComponent<Player>();
+            SuperMode superMode = target.GetComponent<SuperMode>();
+
+            if (superMode.isUse == false)
+            {
+                attaker.Attack(target);
+                superMode.OnMode();
+            }
+        }
     }
 }

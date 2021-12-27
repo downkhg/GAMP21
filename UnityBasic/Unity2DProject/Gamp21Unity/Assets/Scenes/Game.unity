@@ -1773,6 +1773,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1385463446836190701, guid: 476467a7d0a6b144cbe5a98ce156ccec,
+        type: 3}
+      propertyPath: isUse
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385463446836190701, guid: 476467a7d0a6b144cbe5a98ce156ccec,
+        type: 3}
+      propertyPath: Time
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1854333783427439013, guid: 476467a7d0a6b144cbe5a98ce156ccec,
         type: 3}
       propertyPath: m_Sprite
@@ -1864,6 +1874,11 @@ PrefabInstance:
       propertyPath: m_FlipX
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7408771729379172541, guid: 476467a7d0a6b144cbe5a98ce156ccec,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7408771729379172542, guid: 476467a7d0a6b144cbe5a98ce156ccec,
         type: 3}
       propertyPath: m_Name
@@ -1874,7 +1889,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1385014038522437969, guid: 476467a7d0a6b144cbe5a98ce156ccec, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 476467a7d0a6b144cbe5a98ce156ccec, type: 3}
 --- !u!1 &1031182655 stripped
 GameObject:

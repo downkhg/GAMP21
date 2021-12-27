@@ -150,8 +150,13 @@ public class Eagle : MonoBehaviour
         {
             Player target = collision.gameObject.GetComponent<Player>();
             Player attaker = this.gameObject.GetComponent<Player>();
+            SuperMode superMode = target.GetComponent<SuperMode>();
 
-            attaker.Attack(target);
+            if (superMode.isUse == false)
+            {
+                attaker.Attack(target);
+                superMode.OnMode();
+            }
             //Destroy(collision.gameObject);
         }
     }
