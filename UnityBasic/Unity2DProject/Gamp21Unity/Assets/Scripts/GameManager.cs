@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public Responner responnerOpossum;
 
     static GameManager instance;
-    
+
     public static GameManager GetInstacne()
     {
         return instance;
@@ -19,6 +19,77 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+
+    public enum E_GUI_STATUS { TITILE, GAMEOVER, THEEND, PLAY }
+    public List<GameObject> listGUIScence;
+    public E_GUI_STATUS curGUIStatus;
+
+    private void Start()
+    {
+        SetGUIStatus(curGUIStatus);
+    }
+
+    public void ShowGUIScence(int idx)
+    {
+        for(int i = 0; i < listGUIScence.Count; i++)
+        {
+            if (i == idx) listGUIScence[i].SetActive(true);
+            else listGUIScence[i].SetActive(false);
+        }
+    }
+
+    public void SetGUIStatus(E_GUI_STATUS status)
+    {
+        switch (status)
+        {
+            case E_GUI_STATUS.TITILE:
+                break;
+            case E_GUI_STATUS.GAMEOVER:
+                break;
+            case E_GUI_STATUS.THEEND:
+                break;
+            case E_GUI_STATUS.PLAY:
+                break;
+        }
+        curGUIStatus = status;
+        ShowGUIScence((int)status);
+    }
+
+    public void UpdateGUIStatus()
+    {
+        switch (curGUIStatus)
+        {
+            case E_GUI_STATUS.TITILE:
+                break;
+            case E_GUI_STATUS.GAMEOVER:
+                break;
+            case E_GUI_STATUS.THEEND:
+                break;
+            case E_GUI_STATUS.PLAY:
+                break;
+        }
+    }
+
+    public void EventGUISceneChange(E_GUI_STATUS state)
+    {
+        SetGUIStatus(state);
+    }
+
+    public void EventGUISceneChange(int idx)
+    {
+        SetGUIStatus((E_GUI_STATUS)idx);
+    }
+
+    public void EventStart()
+    {
+        SetGUIStatus(E_GUI_STATUS.PLAY);
+    }
+
+    public void EventExit()
+    {
+        Application.Quit();
     }
 
     void CameraTrackingTargetPlayerProcess()
@@ -50,5 +121,6 @@ public class GameManager : MonoBehaviour
     {
         CameraTrackingTargetPlayerProcess();
         EaglePointSetting();
+        UpdateGUIStatus();
     }
 }
