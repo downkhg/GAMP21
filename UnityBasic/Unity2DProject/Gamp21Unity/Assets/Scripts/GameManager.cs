@@ -45,12 +45,16 @@ public class GameManager : MonoBehaviour
         switch (status)
         {
             case E_GUI_STATUS.TITILE:
+                Time.timeScale = 0;
                 break;
             case E_GUI_STATUS.GAMEOVER:
+                Time.timeScale = 0;
                 break;
             case E_GUI_STATUS.THEEND:
+                Time.timeScale = 0;
                 break;
             case E_GUI_STATUS.PLAY:
+                Time.timeScale = 2;
                 break;
         }
         curGUIStatus = status;
@@ -89,6 +93,7 @@ public class GameManager : MonoBehaviour
 
     public void EventExit()
     {
+        Debug.Log("GameManager.EventExit()");
         Application.Quit();
     }
 
