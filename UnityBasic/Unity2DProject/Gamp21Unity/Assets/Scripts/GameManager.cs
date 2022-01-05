@@ -130,11 +130,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public GUIPlayerInfo guiPlayerInfo;
+
     // Update is called once per frame
     void Update()
     {
         CameraTrackingTargetPlayerProcess();
         EaglePointSetting();
         UpdateGUIStatus();
+        guiPlayerInfo.Set(responnerPlayer.objPlayer.GetComponent<Player>());
     }
 }
