@@ -6,6 +6,21 @@ public class Player : MonoBehaviour
 {
     public int hp = 100;
     public int atk = 10;
+    public int hpMax;
+    public int Lv;
+
+    private void Awake()
+    {
+        hpMax = hp;
+    }
+
+    private void Update()
+    {
+        if (Death())
+        {
+            Destroy(this.gameObject);
+        }
+    }
 
     public void Attack(Player target)
     {

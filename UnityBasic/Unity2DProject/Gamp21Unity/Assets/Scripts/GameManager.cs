@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 0;
                 break;
             case E_GUI_STATUS.PLAY:
-                Time.timeScale = 2;
+                Time.timeScale = 1;
                 break;
         }
         curGUIStatus = status;
@@ -72,6 +72,7 @@ public class GameManager : MonoBehaviour
             case E_GUI_STATUS.THEEND:
                 break;
             case E_GUI_STATUS.PLAY:
+                EventGameOverProcess();
                 break;
         }
     }
@@ -95,6 +96,14 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("GameManager.EventExit()");
         Application.Quit();
+    }
+
+    public void EventGameOverProcess()
+    {
+        if(responnerPlayer.objPlayer == null)
+        {
+            SetGUIStatus(E_GUI_STATUS.GAMEOVER);
+        }
     }
 
     void CameraTrackingTargetPlayerProcess()
