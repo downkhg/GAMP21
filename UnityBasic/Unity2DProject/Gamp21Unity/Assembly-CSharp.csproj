@@ -69,13 +69,15 @@
     <Compile Include="Assets\Scripts\DeathZone.cs" />
     <Compile Include="Assets\Scripts\Dynamic.cs" />
     <Compile Include="Assets\Scripts\Eagle.cs" />
+    <Compile Include="Assets\Scripts\GUIInventory.cs" />
+    <Compile Include="Assets\Scripts\GUIIventoryButton.cs" />
     <Compile Include="Assets\Scripts\GUIPlayerInfo.cs" />
     <Compile Include="Assets\Scripts\GUIStatusBar.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Gun.cs" />
     <Compile Include="Assets\Scripts\House.cs" />
     <Compile Include="Assets\Scripts\Item.cs" />
-    <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
+    <Compile Include="Assets\Scripts\MonsterInventory.cs" />
     <Compile Include="Assets\Scripts\Opossum.cs" />
     <Compile Include="Assets\Scripts\Player.cs" />
     <Compile Include="Assets\Scripts\Responner.cs" />

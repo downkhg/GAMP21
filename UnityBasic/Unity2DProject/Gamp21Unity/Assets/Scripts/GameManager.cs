@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public Responner responnerPlayer;
     public Responner responnerEagle;
     public Responner responnerOpossum;
+    public MonsterInventory monsterInventory;
 
     static GameManager instance;
 
@@ -21,6 +22,9 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
+    public GameObject objPopupLayer;
+    public GUIInventory guiInventory;
+    
 
     public enum E_GUI_STATUS { TITILE, GAMEOVER, THEEND, PLAY }
     public List<GameObject> listGUIScence;
@@ -28,6 +32,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        EventShowMeTheItem();
+        guiInventory.SetInventory(monsterInventory);
         SetGUIStatus(curGUIStatus);
     }
 
@@ -73,7 +79,33 @@ public class GameManager : MonoBehaviour
                 break;
             case E_GUI_STATUS.PLAY:
                 EventGameOverProcess();
+                EventInventoryInput();
                 break;
+        }
+    }
+
+    public void PopupLayerShow(bool active)
+    {
+        if (active)
+            guiInventory.SetInventory(monsterInventory);
+        else
+            guiInventory.CloseIventory();
+        
+        objPopupLayer.SetActive(active);
+    }
+
+    public void EventInventoryInput()
+    {
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            if (objPopupLayer.activeSelf)
+            {
+                PopupLayerShow(false);  
+            }
+            else
+            {
+                PopupLayerShow(true);
+            }
         }
     }
 
@@ -103,6 +135,17 @@ public class GameManager : MonoBehaviour
         if(responnerPlayer.objPlayer == null)
         {
             SetGUIStatus(E_GUI_STATUS.GAMEOVER);
+        }
+    }
+
+    public void EventShowMeTheItem()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            monsterInventory.AddMonster("fox");
+            monsterInventory.AddMonster("frog");
+            monsterInventory.AddMonster("eagle");
+            monsterInventory.AddMonster("opossum");
         }
     }
 
@@ -138,6 +181,7 @@ public class GameManager : MonoBehaviour
         CameraTrackingTargetPlayerProcess();
         EaglePointSetting();
         UpdateGUIStatus();
-        guiPlayerInfo.Set(responnerPlayer.objPlayer.GetComponent<Player>());
+        if(responnerPlayer.objPlayer)
+            guiPlayerInfo.Set(responnerPlayer.objPlayer.GetComponent<Player>());
     }
 }

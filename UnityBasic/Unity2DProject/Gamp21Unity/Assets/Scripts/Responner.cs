@@ -16,6 +16,7 @@ public class Responner : MonoBehaviour
         isRespon = true;
         yield return new WaitForSeconds(Time);
         objPlayer = Instantiate(prefabPlayer);
+        objPlayer.name = prefabPlayer.name;
         objPlayer.transform.position = this.gameObject.transform.position;
         isRespon = false;
         //Debug.Log("ProcessTimer 2");

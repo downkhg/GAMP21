@@ -35,12 +35,12 @@ public class Player : MonoBehaviour
         else
             return false;
     }
-    public int idx = 0;
-    private void OnGUI()
-    {
-        int w = 100;
-        int h = 60;
-        Rect rect = new Rect(0, h * idx, w, h);
-        GUI.Box(rect, "Name:"+gameObject.name+"\nHP:"+ hp + "\nATK:"+atk);
-    }
+    //public int idx = 0;
+    //private void OnGUI()
+    //{
+    //    int w = 100;
+    //    int h = 60;
+    //    Rect rect = new Rect(0, h * idx, w, h);
+    //    GUI.Box(rect, "Name:"+gameObject.name+"\nHP:"+ hp + "\nATK:"+atk);
+    //}
 }

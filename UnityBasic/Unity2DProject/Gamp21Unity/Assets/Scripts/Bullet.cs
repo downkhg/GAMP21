@@ -38,6 +38,8 @@ public class Bullet : MonoBehaviour
             //GameManager.GetInstacne().responnerPlayer.objPlayer.GetComponent<Player>();
 
             attaker.Attack(target);
+            if (target.Death()) 
+                GameManager.GetInstacne().monsterInventory.AddMonster(target.name);
             //Destroy(collision.gameObject);
         }
     }
