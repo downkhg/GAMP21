@@ -2,6 +2,7 @@
 #include <stdio.h> 
 #define PI 3.141592
 
+
 void HelloWorldMain()//함수: 코드를 작성하여 기능으로 만드는것. 
 {
 	//출력기능("문장");
@@ -72,6 +73,41 @@ void ValueMain()
 	printf("nDataA:%d\n",nDataA); //nDataA:400
 }
 
+#define BYTE unsigned char
+//문명에 간디는 왜 폭력적인가?
+//간디의 폭력성은 1인데 민주주의를 선택하면 폭력성이 2감소한다. 
+//그러므로, 오버플로우가 발생하여 최고값인 255가 되어 폭력성이 최고수치가 되었다.
+void WhyIsGandhiSoViolentMain()
+{
+	BYTE nGandhiViolent = 1;
+	BYTE nDemocracyPoint = -2;
+	printf("GandhiViolent:%d\n", nGandhiViolent);
+	nGandhiViolent = nGandhiViolent + nDemocracyPoint;
+	printf("Democrcy-GandhiViolent:%d\n",nGandhiViolent);
+}
+
+void ValueIsNumberMain()
+{
+	char cData = 'A';//아스키코드A(65)
+	int nData = 65; 
+	//변수의 값은 실제로 저장값이 아니라 출력형식에 따라 결과가 다르게 나온다.
+	printf("Data(char): %c / %c\n", cData, nData);
+	printf("Data(int): %d / %d\n", cData, nData);
+}
+
+//태양에서 빛이 지구까지 오는데 걸리는 시간을 계산하여라.
+//태양과 지구사이의 거리: 14960만 km
+//빛의 속도: 30만 km/s
+//빛이 도달하는시간: 14960/30  
+//변수: 도달시간, 빛의속도(상수), 태양과지구사이거리(상수) 
+//->문자,정수,실수 -> 실수를 쓰는것이 안전하다. -> 왜 정수는 안되는가? -> 정수로 코드작성해서 확인해보기
+//사칙연산자: +(더하기).-(빼기),/(나누기),*(곱하기)
+//분 -> 초/60 
+//전체초-분*60 = 나머지초 or 전체초%60 (나머지이용)
+void LightSpeedMain()
+{
+
+}
 
 //주석: 컴파일러가 분석하지않는 문장
 void main()//프로그램이 실행되면 os에서 자동으로 호출하는 함수
@@ -79,5 +115,7 @@ void main()//프로그램이 실행되면 os에서 자동으로 호출하는 함수
 	//HelloWorldMain(); //함수의 호출: 함수는 호출해야 실행된다.
 	//CircleAreaMain();
 	//SizeMain();
-	ValueMain();
+	//ValueMain();
+	//WhyIsGandhiSoViolentMain();
+	ValueIsNumberMain();
 }
