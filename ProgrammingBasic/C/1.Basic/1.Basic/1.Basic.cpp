@@ -34,7 +34,7 @@ void CircleAreaMain()
 	printf("radius?");
 	scanf("%f", &radius);//프로그램에서 사용할값을 사용자가 지정하기위해서 //5
 	
-	circleArea = radius * radius * Pi; //변수를 이용하며 값을 변경하기 쉽다. //78.5398 = 5*5*Pi
+	//circleArea = radius * radius * Pi; //변수를 이용하며 값을 변경하기 쉽다. //78.5398 = 5*5*Pi
 	//circleArea = 3 * 3 * 3.14;  //상수를 이용하면 코드를 변경하는데 번거롭다.
 	//리터럴을 이용한 상수. 변수상수처럼 메모리를 차지하지않고, 컴파일러단에서 PI가 있는 위치에 값을 숫자로 변경해준다.
 	circleArea = radius * radius * PI;
