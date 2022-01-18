@@ -122,6 +122,80 @@ void LightSpeedMain()
 // // //반지름문제에서 변수의 용도: 반지름의 값을 입력받아 변경하여 프로그램을 범용성있게 작성할수있다.
 //빛의도달시간 변수의 용도: ?????? 
 //주석: 컴파일러가 분석하지않는 문장
+
+//후위연산자와 전위연산자의 차이를 예제를 통해서 살펴보자.
+void OperatorPrePostfixMain()
+{
+	int nDataA = 10; //10
+	int nDataB = 20; //20
+	int nResultA; //?
+	int nResultB; //?
+
+	nResultA = ++nDataA; //11,11
+	nResultB = nDataB++; //20,21
+
+	printf("Data/ResultA: %d,%d\n", nDataA, nResultA);
+	printf("Data/ResultB: %d,%d\n", nDataB, nResultB);
+}
+//형변환 테스트 
+//float / float -> float
+//int / float -> ?
+//int / int -> int
+void CastingMain()
+{
+	int nDataA = 10; //10
+	int nDataB = 20; //20
+	float fDataA = 10.0f; //10.0
+	float fDataB = 20.0f; //20.0
+
+	float fResultFF,fResultIF,fResultII;//?,?,?
+	int nResultFF, nResultIF, nResultII;//?,?,?
+
+	fResultFF = fDataA / fDataB; //10 / 20 = 0.5
+	fResultIF = nDataA / fDataB; //10 / 20 = 0.5
+	fResultII = nDataA / nDataB; //10 / 20 = ?
+
+	nResultFF = fDataA / fDataB; //10 / 20 = 0.5
+	nResultIF = nDataA / fDataB; //10 / 20 = 0.5
+	nResultII = nDataA / nDataB; //10 / 20 = ?
+
+	printf("float-FF/IF/II: %f/%f/%f\n",fResultFF,fResultIF, fResultII);
+	printf("int-FF/IF/II: %d/%d/%d\n", nResultFF, nResultIF, nResultII);
+}
+//숫자가 특정 범위 안에 있는지 검사하는 프로그램
+//지정한 범위안에 숫자가 있는지 검사하도록 만든다.(단, 지정범위는 입력을 받아 변경하도록한다)
+//min < input < max
+//변수: 작은값, 큰값, 입력값
+//알고리즘: 작은값보다 입력값이 크고, 입력값은 최대값보다 작을때 범위에 있다면 범위안에 있다고 표시하고, 
+//아니면 아니라고 표시하기 
+void DistaceValueMain()
+{
+	int nMin, nMax, nInput;
+	printf("min < input < max (ex. 2 < 5 < 10)");
+	scanf("%d<%d<%d", &nMin, &nInput, &nMax);
+	printf("%d<%d<%d\n", nMin, nInput, nMax);
+	bool bCheck = nMin < nInput && nInput < nMax;
+	printf("Check:%d\n", bCheck); //결과가 1이나오면 참, 0이나오면 거짓이다.
+	if (bCheck)
+		printf("%d < %d < %d\n", nMin, nInput, nMax);
+	else
+		printf("%d is not in range\n", nInput);
+}
+//윤년계산기: 윤년(4의 나머지가 0이고, 100의 나머지가 0이 아니거나 400의 나머지 0일때)
+//변수: 연도 
+//알고리즘: 연도는 입력받는다. 연도%4 == 0 .연도%100 != 0 이거나, 연도%400 == 0 의 조건이 모두 만족하면 윤년이다.
+void LeapYearCalculatorMain()
+{
+	int nYear;
+	printf("Year is LeapYear?");
+	scanf("%d", &nYear);
+	bool  bCheck = (nYear % 4 == 0 && nYear%100 != 0) || nYear%400 == 0;
+	printf("Check:%d\n", bCheck);
+	if (bCheck == true)
+		printf("%d is LeapYear!",nYear);
+	else
+		printf("%d is not LeapYear!", nYear);
+}
 void main()//프로그램이 실행되면 os에서 자동으로 호출하는 함수
 {
 	//HelloWorldMain(); //함수의 호출: 함수는 호출해야 실행된다.
@@ -130,5 +204,8 @@ void main()//프로그램이 실행되면 os에서 자동으로 호출하는 함수
 	//ValueMain();
 	//WhyIsGandhiSoViolentMain();
 	//ValueIsNumberMain();
-	LightSpeedMain();
+	//LightSpeedMain();
+	//OperatorPrePostfixMain();
+	//CastingMain();
+	DistaceValueMain();
 }
