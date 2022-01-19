@@ -184,11 +184,16 @@ void DistaceValueMain()
 //윤년계산기: 윤년(4의 나머지가 0이고, 100의 나머지가 0이 아니거나 400의 나머지 0일때)
 //변수: 연도 
 //알고리즘: 연도는 입력받는다. 연도%4 == 0 .연도%100 != 0 이거나, 연도%400 == 0 의 조건이 모두 만족하면 윤년이다.
+//조건식 && 조건식: 조건식을 둘다 만족할때 참
+//조건식 || 조건식: 조건식을 둘중 하나라도 만족할때 참
 void LeapYearCalculatorMain()
 {
-	int nYear;
+	int nYear; //?
 	printf("Year is LeapYear?");
-	scanf("%d", &nYear);
+	scanf("%d", &nYear); //2022
+	//T: 1, F:0
+	// F || F -> F
+	//(2022 % 4 == 0 ->F && 2022 != 0 -> F) F || 2022%400 == 0 -> F 0
 	bool  bCheck = (nYear % 4 == 0 && nYear%100 != 0) || nYear%400 == 0;
 	printf("Check:%d\n", bCheck);
 	if (bCheck == true)
@@ -196,6 +201,50 @@ void LeapYearCalculatorMain()
 	else
 		printf("%d is not LeapYear!", nYear);
 }
+void BitMaskMain()
+{
+	unsigned int nColor = 0x00385555;
+	unsigned int nResult;
+	printf("Color:%#08x\n", nColor);
+	nResult = nColor & 0x00ff0000;
+	printf("BitMaskResult:%#08x\n", nResult);
+	nResult = nResult >> 16;
+	printf("Result:%#08x\n",nResult);
+}
+//점수를 입력하면 등급을 계산하도록만든다. //A:90점이상,B:90미만, 80점이상,C:80점미만 70점이상, D:70점미만 60점이상, F: 60미만
+//변수: 점수
+//알고리즘: 점수를 입력받고, 각 값에 따라서 등급을 출력하도록 만들어라.
+//A: 점수 >= 90, B: 80 <= 점수 < 90, C: 70 <= 점수 < 80, D:  60 <= 점수 < 70,  F: 60 > 점수
+void GradeCheckMain()
+{
+	int nSocore = 100;//?
+	while (nSocore >= 0)
+	{
+		printf("Score?");
+		scanf("%d", &nSocore);//70
+		if (nSocore >= 90) //70 >= 90 -> F
+		{
+			printf("A\n");
+		}
+		else if (nSocore >= 80 && nSocore < 90) // 70 >= 80 -> F && 70 < 90 -> T -> F
+		{
+			printf("B\n");
+		}
+		else if (nSocore >= 70 && nSocore < 80) // 70 >= 70 -> T && 70 < 80 -> T -> T
+		{
+			printf("C\n");
+		}
+		else if (nSocore >= 60 && nSocore < 70) //70 >= 60 -> T && 70 < 70 -> F -> F //else if는 위조건이 만족하면 아래조건은 검사하지않는다.
+		{
+			printf("D\n");
+		}
+		else if (nSocore < 60)//70 < 60 ->F
+		{
+			printf("F\n");
+		}
+	}
+}
+
 void main()//프로그램이 실행되면 os에서 자동으로 호출하는 함수
 {
 	//HelloWorldMain(); //함수의 호출: 함수는 호출해야 실행된다.
@@ -207,5 +256,8 @@ void main()//프로그램이 실행되면 os에서 자동으로 호출하는 함수
 	//LightSpeedMain();
 	//OperatorPrePostfixMain();
 	//CastingMain();
-	DistaceValueMain();
+	//DistaceValueMain();
+	//LeapYearCalculatorMain();
+	//BitMaskMain();
+	GradeCheckMain();
 }
