@@ -215,35 +215,90 @@ void BitMaskMain()
 //변수: 점수
 //알고리즘: 점수를 입력받고, 각 값에 따라서 등급을 출력하도록 만들어라.
 //A: 점수 >= 90, B: 80 <= 점수 < 90, C: 70 <= 점수 < 80, D:  60 <= 점수 < 70,  F: 60 > 점수
+//점수를 0보다 작은 값이 들어올때까지 반복해서 등급을 계산하는 프로그램을 작성하여라.
 void GradeCheckMain()
 {
-	int nSocore = 100;//?
-	while (nSocore >= 0)
+	int nScore;//? = 0;//100 //변수의 값이 없으면 비교할수없으므로 반드시 초기화해야하며, 조건문에 만족하는 값이 초기화되어야한다.
+	while (nScore >= 0) //특정조건이 되었을때 반복
+	//while(true)
 	{
 		printf("Score?");
-		scanf("%d", &nSocore);//70
-		if (nSocore >= 90) //70 >= 90 -> F
+		scanf("%d", &nScore);//-1
+		//if (nSocore < 0) break; //브레이크를 만나면 반복문이 종료된다.
+		if (nScore >= 90) //70 >= 90 -> F
 		{
 			printf("A\n");
 		}
-		else if (nSocore >= 80 && nSocore < 90) // 70 >= 80 -> F && 70 < 90 -> T -> F
+		else if (nScore >= 80)// && nScore < 90) // 70 >= 80 -> F && 70 < 90 -> T -> F
 		{
 			printf("B\n");
 		}
-		else if (nSocore >= 70 && nSocore < 80) // 70 >= 70 -> T && 70 < 80 -> T -> T
+		else if (nScore >= 70)// && nScore < 80) // 70 >= 70 -> T && 70 < 80 -> T -> T
 		{
 			printf("C\n");
 		}
-		else if (nSocore >= 60 && nSocore < 70) //70 >= 60 -> T && 70 < 70 -> F -> F //else if는 위조건이 만족하면 아래조건은 검사하지않는다.
+		else if (nScore >= 60)// && nScore < 70) //70 >= 60 -> T && 70 < 70 -> F -> F //else if는 위조건이 만족하면 아래조건은 검사하지않는다.
 		{
 			printf("D\n");
 		}
-		else if (nSocore < 60)//70 < 60 ->F
+		else //if (nScore < 60)//70 < 60 ->F
 		{
 			printf("F\n");
 		}
 	}
 }
+//두수를 사칙연산하는 프로그램을 작성하여.
+//1. 두수와 연산자를 1+1과 같이 입력받아 작성하기
+//1.1. 위방법이 어렵다면 각 두수와 연산자를 따로 입력받기
+//2. 연산자의 기호에 따라서 연산결과가 달라지게 만든다.
+//3. 연산한 결과를 출력한다.
+//4. 두수를 계산는 결과를 연산자에 z를 입력할때까지 반복하게 만들기
+//변수: 두수(실수)A,B, 연산자(문자),op
+//알고리즘: 연산자가 +라면 두수를 더한다. / 연산자가 -라면 두수를 뺀다./ 연산자가 *라면 두수를 곱한다. / 연산자가 /라면 두수를 나눈다.
+//만약 op가 +라면 A+B의 결과를 출력한다. / .... / ...
+void CalculatorMain()
+{
+	float fA, fB;
+	char cOp;
+	printf("ex)1+10\n");
+	scanf("%f%c%f",&fA,&cOp,&fB);
+
+	/*if (cOp == '+')
+		printf("%f%c%f=%f\n", fA, cOp, fB, fA + fB);
+	else if (cOp == '-')
+		printf("%f%c%f=%f\n", fA, cOp, fB, fA - fB);
+	else if (cOp == '*')
+		printf("%f%c%f=%f\n", fA, cOp, fB, fA * fB);
+	else if (cOp == '/')
+		printf("%f%c%f=%f\n", fA, cOp, fB, fA / fB);
+	else
+		printf("err\n");*/
+	//while (cOp != 'z')
+	while (cOp == '+' || cOp == '-' || cOp == '/' || cOp == '*')
+	{
+		switch (cOp)
+		{
+		case '+':
+			printf("%f%c%f=%f\n", fA, cOp, fB, fA + fB);
+			break;
+		case '-':
+			printf("%f%c%f=%f\n", fA, cOp, fB, fA - fB);
+			break;
+		case '*':
+			printf("%f%c%f=%f\n", fA, cOp, fB, fA * fB);
+			break;
+		case '/':
+			printf("%f%c%f=%f\n", fA, cOp, fB, fA / fB);
+			break;
+		default:
+			printf("err\n");
+			break;
+		}
+	}
+}
+
+
+
 
 void main()//프로그램이 실행되면 os에서 자동으로 호출하는 함수
 {
@@ -259,5 +314,6 @@ void main()//프로그램이 실행되면 os에서 자동으로 호출하는 함수
 	//DistaceValueMain();
 	//LeapYearCalculatorMain();
 	//BitMaskMain();
-	GradeCheckMain();
+	//GradeCheckMain();
+	CalculatorMain();
 }
