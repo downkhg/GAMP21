@@ -297,6 +297,62 @@ void CalculatorMain()
 	}
 }
 
+//소문자를 입력받으면 대문자로 변환하기(단, 다른문자를 입력받으면, 처리하지않는다, 대문자 X를 입력받을때까지 반복한다.
+//변수: 문자
+//알고리즘: 소문자가 아닌값을 받으면 처리하지않는다. 소문자를 받으면 -32를 하면 대문자가된다.
+//소문자 'a' <= 소문자 <= 'z'
+//void SmallToBigAlphabatMain()
+//{
+//	char cInput;
+//	while (true)
+//	{
+//		printf("Input Small Alphabat:");
+//		scanf("%c", cInput);
+//		if (cInput == 'X') break;
+//		if ('a' <= cInput && cInput <= 'z')
+//		{
+//			cInput -= 32;// cInput = cInput - 32;
+//			printf("%c", cInput);
+//		}
+//	}
+//}
+
+void SmallToBigAlphabatMain()
+{
+	char cInput;
+	while (cInput != 'X')
+	{
+		printf("Input Small Alphabat:");
+		scanf("%c", cInput);
+		if ('a' <= cInput && cInput <= 'z')
+		{
+			cInput -= 32;// cInput = cInput - 32;
+			printf("%c", cInput);
+		}
+	}
+}
+
+void SmallToBigAlphabatContinueMain()
+{
+	char letter;
+
+	while (1)
+	{
+		printf("소문자를 입력하시오: ");
+		scanf(" %c", &letter); //'Z'
+
+		if (letter == 'Q') //'Z' == 'Q' -> F
+			break;
+		//T || F               
+		if (letter < 'a' || letter > 'z')//
+			continue; //조건문으로 건너뛴다.
+
+		letter -= 32;
+		printf("변환된 대문자는 %c입니다.\n", letter);
+	}
+
+}
+
 
 
 

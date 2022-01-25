@@ -166,10 +166,12 @@ void RectMain()
 		printf("\n");
 	}
 }
+
 void WindowMain()
 {
 	
 }
+
 void StiarMain()
 {
 
