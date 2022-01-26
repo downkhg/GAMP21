@@ -68,6 +68,34 @@ void FunctionTestMain()
 	ResutnTest();
 }
 
+int combination(int n, int r);
+int factorial(int n);
+
+void CombinationTestMain()
+{
+	int nDataA;
+	int nDataB;
+	scanf("%d",&nDataA);
+	scanf("%d", &nDataB);
+	int nResult = combination(nDataA, nDataB);
+	printf("C(%d,%d)= %d\n",nDataA, nDataB);
+}
+
+int combination(int n, int r)
+{
+	return factorial(n) / (factorial(r) * factorial(n - r));
+}
+
+int factorial(int n)
+{
+	long result = 1;
+	for (int i = 1; i <= n; i++)
+	{
+		result *= i;
+	}
+	return result;
+}
+
 void main()
 {
 	//SquareCalculatorMain(); 
