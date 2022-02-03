@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stdio.h> //라이브러리: 도서관에서 책을 빌리는 것처럼 함수가 필요할때마다 가져와서 사용하는 곳.
 //함수: 기능을 만들어서 사용하는 것.
 //리턴값: 계산된 결과를 함수밖으로 내보는것. 리턴을 만나면 함수가 종료된다.
 //매개변수: 함수밖에서 넣은 값을 전달해주는 변수.
@@ -17,9 +17,9 @@ void SquareCalculatorMain()
 	int nNumber = 5;
 
 	//int nSquare = nNumber* nNumber;
-	int nSquare = square(nNumber);
+	int nSquare = square(nNumber);//인수: 매개변수에 전달되는 값.
 
-	printf("%d^2 = %d\n", nNumber, nSquare);
+	printf("%d^2 = %d\n", nNumber, nSquare);//라이브러리 함수
 }
 
 int Add(int a, int b) //함수의 매개변수는 2개이상 만들수있다.
@@ -67,7 +67,7 @@ void FunctionTestMain()
 	printf("Max(%d,%d):%d\n", nDataA, nDataB, nResult);
 	ResutnTest();
 }
-
+//함수의 선언: 이런 타입의 함수가 있다. 하지만 내용은 알수없다.
 int combination(int n, int r);
 int factorial(int n);
 
@@ -78,9 +78,9 @@ void CombinationTestMain()
 	scanf("%d",&nDataA);
 	scanf("%d", &nDataB);
 	int nResult = combination(nDataA, nDataB);
-	printf("C(%d,%d)= %d\n",nDataA, nDataB);
+	printf("C(%d,%d)= %d\n",nDataA, nDataB,nResult);
 }
-
+//함수의 정의: 선언된 함수의 내용을 작성함.
 int combination(int n, int r)
 {
 	return factorial(n) / (factorial(r) * factorial(n - r));
@@ -91,7 +91,7 @@ int factorial(int n)
 	long result = 1;
 	for (int i = 1; i <= n; i++)
 	{
-		result *= i;
+		result = result * i;//result *= i;
 	}
 	return result;
 }
@@ -99,5 +99,6 @@ int factorial(int n)
 void main()
 {
 	//SquareCalculatorMain(); 
-	FunctionTestMain();
+	//FunctionTestMain();
+	CombinationTestMain();
 }
