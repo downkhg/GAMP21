@@ -12,13 +12,15 @@ void SwapRef(int& a, int& b);
 
 void FunctionAndPointerMain();
 void ArrayMain();
+void Array2DTestMain();
 
 void main() 
 {
 	//ValueAndOperatorMain();
 	//PointerMain();
 	//FunctionAndPointerMain();
-	ArrayMain();
+	//ArrayMain();
+	Array2DTestMain();
 }
 
 void ValueAndOperatorMain()
@@ -117,27 +119,33 @@ void ArrayMain()//배열은 메모리의 주소값을 활용하여 렌덤엑세스가 가능하다.
 
 void Array2DTestMain() 
 {
-	const int nSizeX = 3;
-	const int nSizeY = 4;
+	const int nSizeX = 4;
+	const int nSizeY = 3;
 	const int nMaxSize = nSizeX * nSizeY;
 	int arr2DArray[nSizeY][nSizeX];
 	int arr2DFakeArray[nMaxSize];
-
+	//2차원배열은 각 원소에 각 인덱스를 부여하여 만든다.
+	//만들어진 원소들은 1차원배열인 메모리에 할당되므로 메모리크기가 미리 지정되어야한다.
+	printf("######### 2dArray #########\n");
 	for (int y = 0; y < nSizeY; y++)
 	{
+		printf("%d-", arr2DArray[y]);//축는 해당 열의 시작주소값을 저장하여 포인터연산한다.
 		for (int x = 0; x < nSizeX; x++)
 		{
+			arr2DArray[y][x] = y * nSizeX + x; //0 * 4 + 0 = 0
 			printf("%d[%d,%d]%d,",&arr2DArray[y][x],y,x,arr2DArray[y][x]);
 		}
 		printf("\n");
 	}
-
+	//1차원배열의 값을 x축의 크기를 알면 1차원배열을 2차원배열처럼 접근가능하다.
+	printf("######### arr2DFakeArray #########\n");
 	for (int y = 0; y < nSizeY; y++)
 	{
 		for (int x = 0; x < nSizeX; x++)
 		{
 			int idx = y * nSizeX + x;
-			printf("%d[%d,%d]%d,", &arr2DFakeArray[idx], y, x, arr2DFakeArray[idx]);
+			arr2DFakeArray[idx] = idx;
+			printf("%d[%d,%d]%d,", &arr2DFakeArray[idx],y,x,arr2DFakeArray[idx]);
 		}
 		printf("\n");
 	}
