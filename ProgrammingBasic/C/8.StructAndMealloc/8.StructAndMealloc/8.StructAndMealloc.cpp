@@ -70,23 +70,43 @@ void StructTestMain()
 	ToStringGameObject(strMsg, sizeof(strMsg), sCopyObject);
 	printf("%s", strMsg);
 }
-//동적할당
+//동적할당: 프로그램 실행중에 메모리를 만들어서 사용하는 것.
+//정적할당: 컴파일러 단에서 메모리가 생성되고 관리되는 것 == 자동할당: 이전까지 배운 모든 변수선언
 void DynamicTestMain()
 {
+	void* pMalloc = NULL; //void포인터: 타입을 가지지않은 메모리의 주소를 저장하는 변수. 
 	int* pBuffur = NULL;
 	int nSize = 5;
 	printf("int Array Size?");
-	scanf_s("%d", &nSize);
+	scanf_s("%d", &nSize); //입력값은 프로그램 실행중에 결정되므로 컴파일러가 결정하는 것이 아니다.
 
-	pBuffur = (int*)malloc(nSize * sizeof(int));
-	for (int i = 0; i < nSize; i++)
-		pBuffur[i] = i * 10;
+	//동적할당 중에 메모리가 부족하면 어떻게 될까?
+	pMalloc = malloc(nSize * sizeof(int));//입력받은 크기의 동적배열생성(생성된 메모리는 타입이 없는 형태의 void포인터로 할당된다.)
+	pBuffur = (int*)pBuffur; //메모리를 사용할 변수타입에 맞게 케스팅을 해서 배열처럼 사용한다.
 
-	for (int i = 0; i < nSize; i++)
-		printf("%d,",pBuffur[i]);
-	printf("\n");
+	if (pBuffur)
+	{
+		for (int i = 0; i < nSize; i++)
+			pBuffur[i] = i * 10;
 
-	free(pBuffur);
+		for (int i = 0; i < nSize; i++)
+			printf("%d,", pBuffur[i]);
+		printf("\n");
+
+		free(pBuffur);//동적할당된 메모리 제거
+	}
+	//구조체의 메모리크기만큼 할당한다.
+	pMalloc = malloc(sizeof(SGameObject));
+	if (pMalloc)
+	{
+		//할당된 메모리를 구조체로 캐스팅하여 각 멤버에 접근한다.
+		SGameObject* pGameObject = (SGameObject*)pMalloc;
+		InitGameObject(*pGameObject, "test", "test", 0);
+		char strMsg[2048];
+		ToStringGameObject(strMsg, sizeof(strMsg), *pGameObject);
+		printf("%s", strMsg);
+		free(pGameObject);
+	}
 }
 
 void main()
