@@ -12,6 +12,13 @@ void StringPrint(const char* str)
 	}
 	printf("\n");
 }
+void ArrayPrint(char* arr, int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		printf("%d",arr[i]);
+	}
+}
 //문자열의 끝을 확인하는 프로그램
 void StringTestMain()
 {
@@ -28,26 +35,53 @@ void StringTestMain()
 	//문자열끝을 알수없으면 함수에서 문자열을 출력할때 어디까지 출력해야하는지 알수없음.
 	printf("[%d]%s\n", sizeof(arr), arr); 
 	StringPrint(arr);
-	StringPrint("const");
+	//StringPrint("const");
+	ArrayPrint(arr, 100);
 }
 
 //문자열을 가공하는 예제
 //성과 이름을 입력받아서 한국식, 미국식 이름을 풀네임을 출력하여라.
 //데이터: 성, 이름, 한국식, 미국식 -> 문자열,크기
 //알고리즘: 한국식 = 성 + 이름 / 미국식 = 이름 + 성 //문자열라이브러리
+//성(문자열)과 이름(문자열)을 합치기 -> 문자열 합치기
 void FullNameMakerMain()
 {
-	char strLastName[100];
-	char strFirstName[100];
-	char strFullNameKr[200];
-	char strFullNameEn[200];
+	char strLastName[10] = "k";
+	char strFirstName[10] = "hg";
+	char strFullNameKr[20] = {};// = "";
+	char strFullNameEn[20] = {};// = "";
 
+	printf("[%d]%s\n",strlen(strLastName),strLastName);
+	printf("[%d]%s\n", strlen(strFirstName), strFirstName);
+	//strcpy: 복사하기 , strcpy: 뒤에 붙여넣기
+	//strcpy(strFullNameKr, strLastName);
+	//strcat(strFullNameKr, strFirstName);
+
+	sprintf(strFullNameKr, "%s%s", strLastName, strFirstName);
+
+	//strcpy(strFullNameEn, strFirstName);
+	//strcat(strFullNameEn, strLastName);
+
+	sprintf(strFullNameEn, "%s%s", strFirstName, strLastName);
 
 	printf("kr:%s\n",strFullNameKr);
 	printf("en:%s\n",strFullNameEn);
+
+	if (strFullNameKr == strFullNameEn)
+		printf("%d<->%d\n", strFullNameKr,strFullNameEn);
+	else
+		printf("%d<->%d\n", strFullNameKr, strFullNameEn);
+
+	int nResult = strcmp(strFullNameKr, strFullNameEn);
+	printf("Result:%d\n",nResult);
+	if (!nResult)//0 
+		printf("%s == %s\n", strFullNameKr, strFullNameEn);
+	else
+		printf("%s != %s\n", strFullNameKr, strFullNameEn);
 }
 
 void main()
 {
-	StringTestMain();
+	//StringTestMain();
+	FullNameMakerMain();
 }
