@@ -105,8 +105,8 @@ void DynamicTestMain()
 	scanf_s("%d", &nSize); //입력값은 프로그램 실행중에 결정되므로 컴파일러가 결정하는 것이 아니다.
 
 	//동적할당 중에 메모리가 부족하면 어떻게 될까?
-	pMalloc = malloc(nSize * sizeof(int));//입력받은 크기의 동적배열생성(생성된 메모리는 타입이 없는 형태의 void포인터로 할당된다.)
-	pBuffur = (int*)pBuffur; //메모리를 사용할 변수타입에 맞게 케스팅을 해서 배열처럼 사용한다.
+	//pMalloc = malloc(nSize * sizeof(int));//입력받은 크기의 동적배열생성(생성된 메모리는 타입이 없는 형태의 void포인터로 할당된다.)
+	pBuffur = (int*)malloc(nSize * sizeof(int)); //메모리를 사용할 변수타입에 맞게 케스팅을 해서 배열처럼 사용한다.
 
 	if (pBuffur)
 	{
@@ -121,11 +121,10 @@ void DynamicTestMain()
 	}
 
 	//구조체의 메모리크기만큼 할당한다.
-	pMalloc = malloc(sizeof(SGameObject));
-	if (pMalloc)
+	SGameObject* pGameObject = (SGameObject*)malloc(sizeof(SGameObject));
+	if (pGameObject)
 	{
 		//할당된 메모리를 구조체로 캐스팅하여 각 멤버에 접근한다.
-		SGameObject* pGameObject = (SGameObject*)pMalloc;
 		InitGameObjectPtr(pGameObject, "test", "test", 0);
 		char strMsg[2048];
 		ToStringGameObjectPtr(strMsg, sizeof(strMsg), pGameObject);
