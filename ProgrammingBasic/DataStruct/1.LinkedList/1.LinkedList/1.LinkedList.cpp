@@ -83,6 +83,16 @@ SNode* FindNodeData(SNode* pStart, int data)
 {
 	SNode* pNode = pStart;
 
+	while (pNode)
+	{
+		if (pNode->nData == data) //40 == 40 ->T
+		{
+			break;
+		}
+		else
+			pNode = pNode->pNext;
+	}
+
 	return pNode;
 }
 
