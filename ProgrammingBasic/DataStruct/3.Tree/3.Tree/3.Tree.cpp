@@ -53,6 +53,58 @@ void Print(SNode* pSeed)
 	Traverse(pSeed);
 }
 
+void Swap(int& a, int& b)
+{
+	printf("Swap[%d <->%d]\n", a, b);
+	int temp = a;
+	a = b;
+	b = temp;
+}
+
+void MinHipTreeInsert(SNode* pParent, SNode* pInsert)
+{
+	if (pParent == NULL) return;
+	if (pParent->nData > pInsert->nData)
+	{
+		printf("Swap Parent\n");
+		Swap(pParent->nData, pInsert->nData);
+
+		MinHipTreeInsert(pParent, pInsert);
+	}
+	else
+	{
+		if (pParent->pLeft == NULL)
+		{
+			pParent->pLeft = pInsert;
+			printf("MinHipTreeInsert_Left:%d\n", pInsert->nData);
+			return;
+		}
+		else if (pParent->pRight == NULL)
+		{
+			pParent->pRight = pInsert;
+			printf("MinHipTreeInsert_Right:%d\n", pInsert->nData);
+			return;
+		}
+		else
+			MinHipTreeInsert(pParent->pLeft, pInsert);
+	}
+}
+
+void HipTreeTestMain()
+{
+	const int nSize = 7;
+	SNode* arrNode[nSize];
+
+	for (int i = 0; i < nSize; i++)
+		//arrNode[i] = CreateNode((i + 1) * 10); //Best
+		arrNode[i] = CreateNode((nSize - 1 * i) * 10); //Worst
+
+	for (int i = 1; i < nSize; i++)
+		MinHipTreeInsert(arrNode[0], arrNode[i]);
+
+	Print(arrNode[0]);
+}
+
 void main()
 {
 	SNode* pSeed = NULL;
