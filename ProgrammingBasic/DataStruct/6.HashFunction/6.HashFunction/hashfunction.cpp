@@ -2,14 +2,14 @@
 OpenSSL해시함수(C언어 수업용)
 파일명: hashfunction.cpp
 작성자 : 김홍규(downkhg@gmail.com)
-마지막수정날짜 : 2022.03.14
-버전 : 1.00
+마지막수정날짜 : 2022.03.15
+버전 : 1.01
 ###################################*/
 #include <stdio.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <openssl/md5.h> //OpenSSL라이브러리를 설정해야 사용할수있다.(라이브러리설치방법은 구글링)
+#include <openssl/md5.h> //OpenSSL라이브러리를 설정해야 사용할수있다.(라이브러리설치방법은 구글링-Openssl_1.1.1d) 
 #include <iostream>
 #include <map>
 

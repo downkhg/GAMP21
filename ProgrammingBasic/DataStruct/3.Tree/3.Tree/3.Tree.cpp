@@ -94,13 +94,14 @@ void HipTreeTestMain()
 {
 	const int nSize = 7;
 	SNode* arrNode[nSize];
+	SNode* pSeed = arrNode[0];
 
 	for (int i = 0; i < nSize; i++)
 		//arrNode[i] = CreateNode((i + 1) * 10); //Best
 		arrNode[i] = CreateNode((nSize - 1 * i) * 10); //Worst
 
 	for (int i = 1; i < nSize; i++)
-		MinHipTreeInsert(arrNode[0], arrNode[i]);
+		MinHipTreeInsert(pSeed, arrNode[i]);
 
 	Print(arrNode[0]);
 }
