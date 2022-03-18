@@ -9,7 +9,7 @@ using namespace std;
 //4. 감속하거나 멈출때, 브레이크를 밟는다.
 //데이터(속성): 시동(bool),기어(enum P,R,D),속도(int)
 //알고리즘(동작): 시동걸기/끄기, 기어변경,  액셀-속도증가, 브레이크-속도감소
-//5. 차량의 상태를 알수없다 -> 계기판 필요. -> 출력결과 초기화가 안됨.
+//5. 차량의 상태를 알수없다 -> 계기판 필요. -> 출력결과 초기화가 안됨. -> 다른객체와 구별하기 어려움 -> 색상을 추가
 class CCar
 {
 public:
@@ -22,17 +22,20 @@ public:
 	void Break() { m_nSpeed--; }
 	void DashBoard() 
 	{ 
+		cout << "###### " << this << " ######" << endl;
+		cout << "Color:" << m_strColor << endl;
 		cout << "Speed:" << m_nSpeed << endl; 
 		cout << "Gear:" << m_eGear << endl;
 		cout << "On:" << m_isOn << endl;
 	}
 
-	CCar()//생성자: 객체가 생성될때 호출되는 함수
+	CCar(string color)//생성자: 객체가 생성될때 호출되는 함수
 	{
 		cout << "CCar["<< this << "]" << endl;
 		m_isOn = false;
 		m_eGear = EGEAR::N;
 		m_nSpeed = 0;
+		m_strColor = color;
 	}
 	~CCar() //소멸자: 객체삭제 시에 호출되는 함수
 	{
@@ -42,12 +45,13 @@ private:
 	bool m_isOn;
 	EGEAR m_eGear;
 	int m_nSpeed;
+	string m_strColor;
 };
 
 void ClassTestMain()
 {
-	CCar cCar; //객체생성(=변수선언) -> 정적할당
-	CCar* pCar = new CCar(); //동적할당
+	CCar cCar("blue"); //객체생성(=변수선언) -> 정적할당
+	CCar* pCar = new CCar("green"); //동적할당
 
 	cCar.On();
 	cCar.SetGear(CCar::EGEAR::D);
@@ -55,6 +59,15 @@ void ClassTestMain()
 	cCar.DashBoard();
 	cCar.Break(); cCar.Break(); cCar.Break(); cCar.Break(); cCar.Break(); cCar.Break();
 	cCar.DashBoard();
+
+	pCar->On();
+	pCar->SetGear(CCar::EGEAR::D);
+	pCar->Accel(); 
+	pCar->DashBoard();
+	pCar->Break();
+	pCar->DashBoard();
+
+	delete pCar;
 }
 
 void main()
