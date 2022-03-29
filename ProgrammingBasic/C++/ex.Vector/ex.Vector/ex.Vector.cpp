@@ -37,6 +37,10 @@ public:
 	{
 		return Vector(x * scala, y * scala);
 	}
+	bool operator == (const Vector& v)
+	{
+		return ((this->x == v.x) && (this->y == v.y));
+	}
 	//friend: 객체외부에서 해당객체의 멤버를 엑세스할 수 있는 함수. 
 	friend Vector operator*(const float scala, const Vector& v)
 	{
@@ -100,6 +104,11 @@ void VecterTestMain()
 	vResult.Display("vDir * fDist = vResult");
 	//cout << vA.GetString() << "+" << vB.GetString() << "=" << vResult.GetString() << endl;
 	cout << vA << "+" << vB << "=" << vResult << endl;
+
+	if (vA == vB)
+		printf("A == B");
+	else
+		printf("A != B");
 }
 
 void main()
