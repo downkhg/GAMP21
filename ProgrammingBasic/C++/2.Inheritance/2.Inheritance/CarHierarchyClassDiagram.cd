@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="HierarchyInheritance::Vihicle">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAIAAAAAAAAEkEAAAAAAAJAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HierarchyCar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HierarchyInheritance::Eneginer">
+    <Position X="3.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAQAAAAAAAAAA=</HashCode>
+      <FileName>HierarchyCar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HierarchyInheritance::AutoBike">
+    <Position X="5.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>HierarchyCar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HierarchyInheritance::Track">
+    <Position X="1" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAEAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HierarchyCar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HierarchyInheritance::Bus">
+    <Position X="3.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>HierarchyCar.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
