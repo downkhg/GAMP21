@@ -56,6 +56,37 @@ struct Status {
 	}
 };
 
+class Effect
+{
+	virtual void Use(Player& caster, Player& target) = 0;
+};
+
+class Hill : public Effect
+{
+	void Use(Player& caster, Player& target)
+	{
+
+	}
+};
+
+class Skill
+{
+	vector<Effect*> listEffect;
+	void AddEffect(Effect* effect)
+	{
+		listEffect.push_back(effect);
+	}
+	virtual void Ative(Player& caster, Player& Target) = 0;
+};
+
+class EffectHill : public Skill
+{
+	void Ative(Player& caster, Player& Target)
+	{
+
+	}
+};
+
 class Item {
 public:
 	enum E_ITEM_KIND { WEAPON, ARMOR, ACC, POTION, THROW };
@@ -171,6 +202,7 @@ class Player {
 
 	vector<Item*> m_listIventory;
 	vector<Item*> m_listEqument;
+	vector<Skill*> m_listSkills;
 public:
 	Player()
 	{
