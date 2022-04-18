@@ -132,7 +132,7 @@ void main()
 {
 	//PizzaSiliceMain();
 	//PolymorphismExceptionMain();
-	//TypeIdMain();
+	TypeIdMain();
 	//StaticCastMain();
-	DynamicCastMain();
+	//DynamicCastMain();
 }
