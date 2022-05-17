@@ -74,7 +74,8 @@ HRESULT InitD3D(HWND hWnd)
     }
 
     /// 컬링기능을 끈다. 삼각형의 앞면, 뒷면을 모두 렌더링한다.
-    g_pd3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+    //g_pd3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+    g_pd3dDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_CW);
 
     /// 정점에 색깔값이 있으므로, 광원기능을 끈다.
     g_pd3dDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
@@ -151,7 +152,7 @@ VOID SetupMatrices()
 
     UINT  iTime = timeGetTime() % 1000;					/// float연산의 정밀도를 위해서 1000으로 나머지 연산한다.
     FLOAT fAngle = iTime * (2.0f * D3DX_PI) / 1000.0f;		/// 1000밀리초마다 한바퀴씩(2 * pi) 회전 애니메이션 행렬을 만든다.
-    D3DXMatrixRotationY(&matWorld, fAngle);				/// Y축을 회전행렬 생성
+    D3DXMatrixRotationZ(&matWorld, fAngle);				/// Y축을 회전행렬 생성
     g_pd3dDevice->SetTransform(D3DTS_WORLD, &matWorld);	/// 생성한 회전행렬을 월드행렬로 디바이스에 설정
 
     /// 뷰행렬을 정의하기 위해서는 세가지값이 필요하다.    
