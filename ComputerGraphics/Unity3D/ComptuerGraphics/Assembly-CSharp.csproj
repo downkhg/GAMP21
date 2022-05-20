@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\TransfromViewer.cs" />
     <Compile Include="Assets\Scripts\MeshInfo.cs" />
+    <Compile Include="Assets\Scripts\BillBaordEffect.cs" />
+    <Compile Include="Assets\Scripts\CameraTrecker.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
