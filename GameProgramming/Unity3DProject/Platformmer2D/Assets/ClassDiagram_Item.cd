@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Item">
+    <Position X="4.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAgAAAAAAAAAAEAEAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemData">
+    <Position X="6.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAAAAAAAIAAAAAAAAAAAAAAEAAEAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ItemDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemDataManager">
+    <Position X="2.75" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="ItemDataManager.E_ITEMDATA" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\ItemDataManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAgAAAAAAAAAAAAAAAABAABgAAAABgAAAA=</HashCode>
+      <FileName>Assets\Scripts\ItemDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemIventory">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARAAAAAACABAAAAAAAAAAAAAAAAAAAAAECAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ItemIventory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SuperModeEffect" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EffectDataManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RecoryEffect" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EffectDataManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="BulletEffect" BaseTypeListCollapsed="true">
+    <Position X="11.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EffectDataManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="LaserEffect" BaseTypeListCollapsed="true">
+    <Position X="9.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EffectDataManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EffectDataManager">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="EffectDataManager.EffectFucntion">
+        <TypeIdentifier>
+          <NewMemberFileName>Assets\Scripts\EffectDataManager.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAQACAAEACAAAAAAAAAAAAAAAAAQAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EffectDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="IEffect">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\EffectDataManager.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
