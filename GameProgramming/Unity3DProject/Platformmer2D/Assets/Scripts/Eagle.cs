@@ -74,7 +74,6 @@ public class Eagle : MonoBehaviour
     void Update()
     {
         UpdataMove();
-
         UpdateAIState();
     }
 

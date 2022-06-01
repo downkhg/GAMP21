@@ -88,16 +88,16 @@ public class Player : MonoBehaviour
     }
 
     public int nDebugIdx;
-    private void OnGUI()
-    {
-        Vector2 vPos = Vector2.zero;
-        Vector2 vSize = new Vector2(100, 20);
-        int nLine = 0;
-        GUI.Box(new Rect(vPos.x + (vSize.x * nDebugIdx), vPos.y + (vSize.y * nLine), vSize.x, vSize.y), "Name:" + gameObject.name); nLine++;
-        GUI.Box(new Rect(vPos.x + (vSize.x * nDebugIdx), vPos.y + (vSize.y*nLine) , vSize.x, vSize.y), "HP:" + playerStatus.nHP); nLine++;
-        GUI.Box(new Rect(vPos.x + (vSize.x * nDebugIdx), vPos.y + (vSize.y * nLine), vSize.x, vSize.y), "Demage:" + playerStatus.nDemage); nLine++;
-        GUI.Box(new Rect(vPos.x + (vSize.x * nDebugIdx), vPos.y + (vSize.y * nLine), vSize.x, vSize.y), "Lv/Exp:" + nLv + "/" + nExp); nLine++;
-    }
+    //private void OnGUI()
+    //{
+    //    Vector2 vPos = Vector2.zero;
+    //    Vector2 vSize = new Vector2(100, 20);
+    //    int nLine = 0;
+    //    GUI.Box(new Rect(vPos.x + (vSize.x * nDebugIdx), vPos.y + (vSize.y * nLine), vSize.x, vSize.y), "Name:" + gameObject.name); nLine++;
+    //    GUI.Box(new Rect(vPos.x + (vSize.x * nDebugIdx), vPos.y + (vSize.y*nLine) , vSize.x, vSize.y), "HP:" + playerStatus.nHP); nLine++;
+    //    GUI.Box(new Rect(vPos.x + (vSize.x * nDebugIdx), vPos.y + (vSize.y * nLine), vSize.x, vSize.y), "Demage:" + playerStatus.nDemage); nLine++;
+    //    GUI.Box(new Rect(vPos.x + (vSize.x * nDebugIdx), vPos.y + (vSize.y * nLine), vSize.x, vSize.y), "Lv/Exp:" + nLv + "/" + nExp); nLine++;
+    //}
 
     // Start is called before the first frame update
     void Start()

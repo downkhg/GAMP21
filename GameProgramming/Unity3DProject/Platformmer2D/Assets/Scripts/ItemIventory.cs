@@ -16,21 +16,21 @@ public class ItemIventory : MonoBehaviour
         listItems.Remove(item);
     }
 
-    private void OnGUI()
-    {
-        int w = 100;
-        int h = 20;
-        Rect rect = new Rect(0,0,w,h);
+    //private void OnGUI()
+    //{
+    //    int w = 100;
+    //    int h = 20;
+    //    Rect rect = new Rect(0,0,w,h);
 
-        for (int i = 0; i< listItems.Count; i++)
-        {
-            rect.y = h * i;
-            if(GUI.Button(rect,i+":"+listItems[i]))
-            {
-                GameManager.GetInstance().EventItemUsePlayer(listItems[i]);
-            }
-        }
-    }
+    //    for (int i = 0; i< listItems.Count; i++)
+    //    {
+    //        rect.y = h * i;
+    //        if(GUI.Button(rect,i+":"+listItems[i]))
+    //        {
+    //            GameManager.GetInstance().EventItemUsePlayer(listItems[i]);
+    //        }
+    //    }
+    //}
 
     // Start is called before the first frame update
     void Start()

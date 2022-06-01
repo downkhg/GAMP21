@@ -29,14 +29,14 @@ public class Timmer : MonoBehaviour
         isUse = false;
     }
 
-    //private void OnGUI()
-    //{
-    //    if(GUI.Button(new Rect(Screen.width/2 - 50,Screen.height/2 - 50, 100, 100), "Time:" + CurTime))
-    //    {
-    //        if (isUse)
-    //            Stop();
-    //        else
-    //            Play();
-    //    }
-    //}
+    private void OnGUI()
+    {
+        if (GUI.Button(new Rect(Screen.width / 2 - 50, Screen.height / 2 - 50, 100, 100), "Time:" + CurTime))
+        {
+            if (isUse)
+                Stop();
+            else
+                Play();
+        }
+    }
 }

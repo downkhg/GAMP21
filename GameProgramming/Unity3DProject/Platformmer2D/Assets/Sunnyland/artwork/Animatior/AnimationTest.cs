@@ -18,19 +18,19 @@ public class AnimationTest : MonoBehaviour
         
     }
 
-    private void OnGUI()
-    {
-       if( GUI.Button(new Rect(0,0,100,20),"Hurt"))
-       {
-            animator.SetTrigger("Hurt");
-       }
-        if (GUI.Button(new Rect(100, 0, 100, 20), "Run: true"))
-        {
-            animator.SetBool("Run", true);
-        }
-        if (GUI.Button(new Rect(200, 0, 100, 20), "Run: false"))
-        {
-            animator.SetBool("Run", false);
-        }
-    } 
+    //private void OnGUI()
+    //{
+    //   if( GUI.Button(new Rect(0,0,100,20),"Hurt"))
+    //   {
+    //        animator.SetTrigger("Hurt");
+    //   }
+    //    if (GUI.Button(new Rect(100, 0, 100, 20), "Run: true"))
+    //    {
+    //        animator.SetBool("Run", true);
+    //    }
+    //    if (GUI.Button(new Rect(200, 0, 100, 20), "Run: false"))
+    //    {
+    //        animator.SetBool("Run", false);
+    //    }
+    //} 
 }
