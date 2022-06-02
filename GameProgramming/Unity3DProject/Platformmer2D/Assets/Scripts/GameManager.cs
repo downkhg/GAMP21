@@ -88,8 +88,16 @@ public class GameManager : MonoBehaviour
         if(responnerEagle.objPlayer)
         {
             Eagle eagle = responnerEagle.objPlayer.GetComponent<Eagle>();
-            if(eagle.objResponPoint ==null)
+            if (eagle.objResponPoint == null)
+            {
                 eagle.objResponPoint = responnerEagle.gameObject;
+            }
+
+            if (eagle.objPatrolPoint == null)
+            {
+                eagle.objPatrolPoint = responnerOpossum.gameObject;
+            }
+            
         }
     }
 
