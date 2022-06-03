@@ -7,7 +7,7 @@ public class GUIManager : MonoBehaviour
 {
     public List<GameObject> listGUIScenes;
     public enum E_GUI_STATE { TITLE, THEEND, GAMEOVER, PLAY }
-    public E_GUI_STATE curGUIState;
+    public static E_GUI_STATE curGUIState;
 
     public GameObject objPopupLayer;
 
@@ -52,6 +52,7 @@ public class GUIManager : MonoBehaviour
     }
     public void SetGUIScene(E_GUI_STATE state)
     {
+        Debug.Log("SetGUIScene("+state+")");
         switch (state)
         {
             case E_GUI_STATE.TITLE:
@@ -65,7 +66,7 @@ public class GUIManager : MonoBehaviour
             case E_GUI_STATE.GAMEOVER:
                 Time.timeScale = 0;
                 break;
-            case E_GUI_STATE.PLAY:
+            case E_GUI_STATE.PLAY: 
                 Time.timeScale = 1;
                 break;
         }

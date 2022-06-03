@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -43,6 +44,18 @@ public class GameManager : MonoBehaviour
             itemData.item_effect(responnerPlayer.objPlayer);
             itemIventory.RemoveIventory(itemData);
         }
+    }
+
+    public void EventSceneResetStart(int idx)
+    {
+        EventSceneChange("Game", (GUIManager.E_GUI_STATE)idx);
+    }
+
+    public void EventSceneChange(string name, GUIManager.E_GUI_STATE guiState)
+    {
+        SceneManager.LoadScene(name);
+        guiManager.SetGUIScene(guiState);
+        guiManager.SetGUIScene(GUIManager.curGUIState);
     }
 
     public void DeathZoneGizmo()
