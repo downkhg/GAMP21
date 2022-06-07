@@ -79,6 +79,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -103,8 +104,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8642771837104280003, guid: 3b66e1a27c9634fe9a4746c47eeda7cc,
-    type: 3}
+  m_Sprite: {fileID: 8642771837104280003, guid: 3b66e1a27c9634fe9a4746c47eeda7cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -127,8 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb39d15effa43742a5bb4d923658454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objBullet: {fileID: 5855910721367279503, guid: d89935cccfcb26e4a9ee56171222798e,
-    type: 3}
+  objBullet: {fileID: 5855910721367279503, guid: d89935cccfcb26e4a9ee56171222798e, type: 3}
   trMozzle: {fileID: 1222952119531762651}
   ShotPower: 300
   nBulletCount: 5
@@ -152,6 +151,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 1256514473691559704}
   - component: {fileID: 4359232477344762855}
   - component: {fileID: 6010525002166970304}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -287,6 +287,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

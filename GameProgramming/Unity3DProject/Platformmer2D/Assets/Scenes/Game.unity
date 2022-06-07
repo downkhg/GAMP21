@@ -6496,11 +6496,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4359232477344762855, guid: 6af01f739c24c0e4b9ca970f513c32ae, type: 3}
       propertyPath: playerStatus.nHP
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4359232477344762855, guid: 6af01f739c24c0e4b9ca970f513c32ae, type: 3}
       propertyPath: playerStatus.nMP
-      value: 10
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 4359232477344762855, guid: 6af01f739c24c0e4b9ca970f513c32ae, type: 3}
       propertyPath: incPlayerStatus.nHP

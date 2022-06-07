@@ -11,6 +11,9 @@ public class BillBaordEffect : MonoBehaviour
     void Start()
     {
         m_renderer = GetComponent<Renderer>();
+
+      
+       m_renderer.material.color = Color.red;
     }
 
     // Update is called once per frame
@@ -23,6 +26,7 @@ public class BillBaordEffect : MonoBehaviour
     void EffectAniUpdate()
     {
         Vector2 vTexOffset = m_renderer.material.mainTextureOffset;
+       
     }
 
     void BillBoardUpdate()

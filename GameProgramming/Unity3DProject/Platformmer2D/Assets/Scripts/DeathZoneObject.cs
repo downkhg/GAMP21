@@ -7,7 +7,9 @@ public class DeathZoneObject : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.GetInstance().DeathZoneY > this.transform.position.y)
-            Destroy(this.gameObject);
+        GameManager gameManager = GameManager.GetInstance();
+
+        if (gameManager != null && gameManager.DeathZoneY > this.transform.position.y)
+           gameObject.SetActive(false);
     }
 }

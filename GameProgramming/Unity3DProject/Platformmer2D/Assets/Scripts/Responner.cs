@@ -17,7 +17,7 @@ public class Responner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (objPlayer == null)// && isRespon == false)
+        if (objPlayer.activeSelf == false)// && isRespon == false)
         {
             if (isRespon == false)
                 StartCoroutine(ProcessTimmer());
@@ -29,13 +29,9 @@ public class Responner : MonoBehaviour
         //Debug.Log("ProcessTimmer 1");
         isRespon = true;
         yield return new WaitForSeconds(Time);
-        GameObject prefabPlayer = Resources.Load("Prefabs/"+strPrefabName) as GameObject;
-        objPlayer = Instantiate(prefabPlayer, this.transform.position, Quaternion.identity);
-        objPlayer.name = prefabPlayer.name;
-        ////독수리만을 위한 기능을 리스포너에 추가하는것은 비효률적이다.
-        //Eagle eagle = objPlayer.GetComponent<Eagle>();
-        //if(eagle)
-        //    eagle.objResponPoint = this.gameObject;
+        objPlayer.GetComponent<Player>().Recovery();
+        objPlayer.SetActive(true);
+        objPlayer.transform.position = this.transform.position;
         isRespon = false;
         //Debug.Log("ProcessTimmer 2");
     }

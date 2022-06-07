@@ -109,7 +109,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (Death())
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
 
         LvUp(incPlayerStatus);
         UpdateStatusBar();

@@ -34,7 +34,7 @@ public class Eagle : MonoBehaviour
         switch (curAIState)
         {
             case E_AI_STATE.TRACKING:
-                if (objTarget == null)
+                if (objTarget)
                     SetAIState(E_AI_STATE.RETRUN);
                 break;
             case E_AI_STATE.RETRUN:
@@ -75,6 +75,7 @@ public class Eagle : MonoBehaviour
     {
         UpdataMove();
         UpdateAIState();
+        if (objTarget != null && objTarget.activeSelf == false) objTarget = null;
     }
 
     private void FixedUpdate()
@@ -92,17 +93,18 @@ public class Eagle : MonoBehaviour
         int nLayer = 1 << LayerMask.NameToLayer("Player");
         Collider2D collider =
             Physics2D.OverlapCircle(vPos + circleCollider.offset, circleCollider.radius, nLayer);
-
+        
         if (collider)//콜라이더가 있을때
         {
+            Debug.Log("Attack");
             Player me = this.GetComponent<Player>();
             Player target = collider.gameObject.GetComponent<Player>();
             SuperMode superMode = target.GetComponent<SuperMode>();
-            if (superMode && superMode.isUes == false)
+            if (superMode && superMode.isUes == false && target.Death() == false)
             {
                 me.Attack(target);
                 if (target.Death()) me.StillExp(target);
-                superMode.OnMode();
+                else superMode.OnMode();
             }
         }
     }
@@ -169,16 +171,16 @@ public class Eagle : MonoBehaviour
         Gizmos.DrawWireSphere(this.transform.position, Site);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("OnTriggerEnter2D:" + collision.gameObject.name);
-        if (collision.gameObject.tag == "Player")
-        {
-            //Destroy(collision.gameObject);
-            Player me = this.GetComponent<Player>();
-            Player target = collision.gameObject.GetComponent<Player>();
+    //private void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    Debug.Log("OnTriggerEnter2D:" + collision.gameObject.name);
+    //    if (collision.gameObject.tag == "Player")
+    //    {
+    //        //Destroy(collision.gameObject);
+    //        Player me = this.GetComponent<Player>();
+    //        Player target = collision.gameObject.GetComponent<Player>();
 
-            me.Attack(target);
-        }
-    }
+    //        me.Attack(target);
+    //    }
+    //}
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GUIStatusBar : MonoBehaviour
 {
     public Text textName;
+    public Text textStatus;
     public RectTransform rectBar;
     public RectTransform rectBackGround;
     public Color colorBar = Color.red;
@@ -15,7 +16,8 @@ public class GUIStatusBar : MonoBehaviour
         Vector2 vBGSize = rectBackGround.sizeDelta;
         Vector2 vBarSize = rectBar.sizeDelta;
         vBarSize.x = vBGSize.x * fRat;
-        rectBar.sizeDelta = vBarSize; 
+        rectBar.sizeDelta = vBarSize;
+        textStatus.text = string.Format("{0}/{1}", cur, max);
     }
     public void Init()
     {
