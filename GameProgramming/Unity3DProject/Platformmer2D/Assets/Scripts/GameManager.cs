@@ -4,6 +4,44 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+public static class StaticFunction
+{
+    public static void Attack(GameObject objAttacker, Collider2D colTarget)
+    {
+        Debug.Log(objAttacker.name + "Attack" + colTarget.gameObject.name);
+        Player attacker = objAttacker.GetComponent<Player>();
+        Player target = colTarget.gameObject.GetComponent<Player>();
+        SuperMode superMode = target.GetComponent<SuperMode>();
+
+        if (target.Death() == false)
+        {
+            if (superMode && superMode.isUes == false)
+            {
+                attacker.Attack(target);
+                if (target.Death())
+                    attacker.StillExp(target);
+                else
+                    superMode.OnMode();
+            }
+        }
+    }
+
+    public static void ResponPlayer(GameObject objPlayer, GameObject objResponner)
+    {
+        objPlayer.GetComponent<Player>().Recovery();
+        objPlayer.SetActive(true);
+        objPlayer.transform.position = objPlayer.transform.position = objResponner.transform.position;
+    }
+
+    public static GameObject InitStaticObject(string path, Vector3 pos)
+    {
+        GameObject objPrefab = Resources.Load(path) as GameObject;
+        GameObject objInstance = Object.Instantiate(objPrefab, pos, Quaternion.identity);
+        Object.DontDestroyOnLoad(objInstance);
+        return objInstance;
+    }
+}
+    
 public class GameManager : MonoBehaviour
 {
     public string strVer = "Ver.0.00.00";
@@ -35,6 +73,11 @@ public class GameManager : MonoBehaviour
     {
         itemData.item_effect(obj);
         itemIventory.RemoveIventory(itemData);
+    }
+
+    public void EventSceneChange(int idx)
+    {
+        guiManager.SetGUIScene((GUIManager.E_GUI_STATE)idx);
     }
 
     public void EventItemUsePlayer(ItemData itemData)
@@ -73,15 +116,35 @@ public class GameManager : MonoBehaviour
         return instance;
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void Initialize()
     {
+        //StaticFunction.InitStaticObject("")
         instance = this;
-        textVer.text = string.Format("Ver.{0}",Application.version);
+        textVer.text = string.Format("Ver.{0}", Application.version);
         //itemDataManager.InitItemData(effectDataManager);
         effectDataManager.InitEffectData();
         effectDelegateManager.InitEffectFunction();
         itemDataManager.InitItemDataAsset(effectDelegateManager);
+        responnerPlayer.Initialize();
+        responnerOpossum.Initialize();
+        responnerEagle.Initialize();
+        SetEagleRetrunPointCheck();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        ////게임관리자객체만 유지하면 나머지 참조객체들이 사라지므로 의미가 없음.
+        //if (instance == null)
+        //{
+        //    DontDestroyOnLoad(this.gameObject);
+        //    instance = this;
+        //}
+        //else
+        //{
+        //    Destroy(this.gameObject);
+        //}
+        Initialize();
     }
 
     // Update is called once per frame
@@ -93,10 +156,15 @@ public class GameManager : MonoBehaviour
         if (mobileController.dynamic == null && responnerPlayer.objPlayer)
             mobileController.dynamic = responnerPlayer.objPlayer.GetComponent<Dynamic>();
 
-        UpdateEagleRetrunPointCheck();  
+        //UpdateEagleRetrunPointCheck();  
+
+        if(responnerPlayer.objPlayer.activeSelf == false)
+        {
+            guiManager.SetGUIScene(GUIManager.E_GUI_STATE.GAMEOVER);
+        }
     }
 
-    private void UpdateEagleRetrunPointCheck()
+    private void SetEagleRetrunPointCheck()
     {
         if(responnerEagle.objPlayer)
         {
@@ -110,7 +178,6 @@ public class GameManager : MonoBehaviour
             {
                 eagle.objPatrolPoint = responnerOpossum.gameObject;
             }
-            
         }
     }
 

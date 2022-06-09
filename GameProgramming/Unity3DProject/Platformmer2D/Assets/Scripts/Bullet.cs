@@ -34,21 +34,22 @@ public class Bullet : MonoBehaviour
     {
         Vector2 vPos = transform.position;
         CircleCollider2D circleCollider = this.GetComponent<CircleCollider2D>();
-        int nLayer = 1 << LayerMask.NameToLayer("Player");
+        int nLayer = 1 << LayerMask.NameToLayer("Monster");
         Collider2D collider =
             Physics2D.OverlapCircle(vPos + circleCollider.offset, circleCollider.radius, nLayer);
 
         if (collider)//콜라이더가 있을때
         {
-            Player me = this.GetComponent<Player>();
-            Player target = collider.gameObject.GetComponent<Player>();
-            SuperMode superMode = target.GetComponent<SuperMode>();
-            if (superMode && superMode.isUes == false)
-            {
-                me.Attack(target);
-                if (target.Death()) me.StillExp(target);
-                superMode.OnMode();
-            }
+            //Player me = this.GetComponent<Player>();
+            //Player target = collider.gameObject.GetComponent<Player>();
+            //SuperMode superMode = target.GetComponent<SuperMode>();
+            //if (superMode && superMode.isUes == false)
+            //{
+            //    me.Attack(target);
+            //    if (target.Death()) me.StillExp(target);
+            //    superMode.OnMode();
+            //}
+            StaticFunction.Attack(master.gameObject, collider);
         }
     }
 
@@ -60,15 +61,15 @@ public class Bullet : MonoBehaviour
             //GameObject objPlayer = GameManager.GetInstance().responnerPlayer.objPlayer; //싱글톤객체를 통해 바로 원하는 객체에 접근.
             //master = objPlayer.GetComponent<Player>();
 
-
-            Player target = collision.GetComponent<Player>();
-            SuperMode superMode = target.GetComponent<SuperMode>();
-            if (superMode && superMode.isUes == false)
-            {
-                master.Attack(target);
-                if (target.Death()) master.StillExp(target);
-                superMode.OnMode();
-            }
+            StaticFunction.Attack(master.gameObject, collision);
+            //Player target = collision.GetComponent<Player>();
+            //SuperMode superMode = target.GetComponent<SuperMode>();
+            //if (superMode && superMode.isUes == false)
+            //{
+            //    master.Attack(target);
+            //    if (target.Death()) master.StillExp(target);
+            //    superMode.OnMode();
+            //}
         }
     }
 }

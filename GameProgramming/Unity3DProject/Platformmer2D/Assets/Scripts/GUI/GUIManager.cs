@@ -64,6 +64,7 @@ public class GUIManager : MonoBehaviour
                 Time.timeScale = 0;
                 break;
             case E_GUI_STATE.GAMEOVER:
+                gameManager.responnerPlayer.ResetPlayer();
                 Time.timeScale = 0;
                 break;
             case E_GUI_STATE.PLAY: 

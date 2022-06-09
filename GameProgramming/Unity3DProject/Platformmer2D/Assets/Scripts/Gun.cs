@@ -26,14 +26,20 @@ public class Gun : MonoBehaviour
         {
             if (hitTarget)
             {
-                Player target = hitTarget.GetComponent<Player>();
-                SuperMode superMode = target.GetComponent<SuperMode>();
+                //Player target = hitTarget.GetComponent<Player>();
+                //SuperMode superMode = target.GetComponent<SuperMode>();
 
-                if (target && superMode && superMode.isUes == false)
-                {
-                    master.Attack(target);
-                    superMode.OnMode();
-                }
+                //if (target && superMode && superMode.isUes == false)
+                //{
+
+                //    if (target.Death()) master.StillExp(target);
+                //    else
+                //    {
+                //        superMode.OnMode();
+                //        master.Attack(target);
+                //    }
+                //}
+                StaticFunction.Attack(master.gameObject, hitTarget);
             }
             yield return new WaitForSeconds(Time);
         }

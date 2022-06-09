@@ -32,15 +32,24 @@ public class ItemIventory : MonoBehaviour
     //    }
     //}
 
-    // Start is called before the first frame update
-    void Start()
+    public void Initialize(ItemDataManager itemDataManager)
     {
-        ItemDataManager itemDataManager = GameManager.GetInstance().itemDataManager;
-
         SetIventory(itemDataManager.GetItemData(ItemDataManager.E_ITEMDATA.BULLET));
         SetIventory(itemDataManager.GetItemData(ItemDataManager.E_ITEMDATA.SUPER_MODE));
         SetIventory(itemDataManager.GetItemData(ItemDataManager.E_ITEMDATA.LASER));
         SetIventory(itemDataManager.GetItemData(ItemDataManager.E_ITEMDATA.CHERRY));
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //호출시점이 맞지않아 아이템관리자가 생성되지않음.
+        //ItemDataManager itemDataManager = GameManager.GetInstance().itemDataManager;
+
+        //SetIventory(itemDataManager.GetItemData(ItemDataManager.E_ITEMDATA.BULLET));
+        //SetIventory(itemDataManager.GetItemData(ItemDataManager.E_ITEMDATA.SUPER_MODE));
+        //SetIventory(itemDataManager.GetItemData(ItemDataManager.E_ITEMDATA.LASER));
+        //SetIventory(itemDataManager.GetItemData(ItemDataManager.E_ITEMDATA.CHERRY));
         //SetIventory(Item.ITEM_KIND.GRENADE);
        
     }

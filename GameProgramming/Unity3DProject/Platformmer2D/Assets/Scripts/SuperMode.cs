@@ -27,7 +27,7 @@ public class SuperMode : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("SuperMode::Start");
+        Debug.Log(gameObject.name+".SuperMode::Start");
         if (isUes == true) StartCoroutine(ProcessTimmer());
     }
 

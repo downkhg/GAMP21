@@ -7,6 +7,8 @@ TagManager:
   - Lodder
   - Item
   - Monster
+  - Hide
+  - Bullet
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,8 @@ TagManager:
   - UI
   - Player
   - Monster
-  - 
-  - 
+  - HideObject
+  - Bullet
   - 
   - 
   - 

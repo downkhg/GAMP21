@@ -75,7 +75,8 @@ public class Eagle : MonoBehaviour
     {
         UpdataMove();
         UpdateAIState();
-        if (objTarget != null && objTarget.activeSelf == false) objTarget = null;
+        if (objTarget != null && objTarget.activeSelf == false) 
+            objTarget = null;
     }
 
     private void FixedUpdate()
@@ -96,16 +97,7 @@ public class Eagle : MonoBehaviour
         
         if (collider)//콜라이더가 있을때
         {
-            Debug.Log("Attack");
-            Player me = this.GetComponent<Player>();
-            Player target = collider.gameObject.GetComponent<Player>();
-            SuperMode superMode = target.GetComponent<SuperMode>();
-            if (superMode && superMode.isUes == false && target.Death() == false)
-            {
-                me.Attack(target);
-                if (target.Death()) me.StillExp(target);
-                else superMode.OnMode();
-            }
+            StaticFunction.Attack(gameObject, collider);
         }
     }
 

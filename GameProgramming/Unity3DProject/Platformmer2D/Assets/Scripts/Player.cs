@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
     }
     public void StillExp(Player target)
     {
-        Debug.Log("StillExp:"+target.gameObject.name);
+        Debug.Log("StillExp:"+target.gameObject.name); 
         this.nExp += (target.nExp + target.nLv * 100);
     }
     public void Attack(Player target)

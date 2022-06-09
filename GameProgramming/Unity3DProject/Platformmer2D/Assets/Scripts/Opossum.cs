@@ -32,15 +32,16 @@ public class Opossum : MonoBehaviour
 
         if (collider)//콜라이더가 있을때
         {
-            Player me = this.GetComponent<Player>();
-            Player target = collider.gameObject.GetComponent<Player>();
-            SuperMode superMode = target.GetComponent<SuperMode>();
-            if (superMode && superMode.isUes == false)
-            {
-                me.Attack(target);
-                if (target.Death()) me.StillExp(target);
-                superMode.OnMode();
-            }
+            //Player me = this.GetComponent<Player>();
+            //Player target = collider.gameObject.GetComponent<Player>();
+            //SuperMode superMode = target.GetComponent<SuperMode>();
+            //if (superMode && superMode.isUes == false)
+            //{
+            //    me.Attack(target);
+            //    if (target.Death()) me.StillExp(target);
+            //    superMode.OnMode();
+            //}
+            StaticFunction.Attack(collider.gameObject, collider);
         }
     }
 
