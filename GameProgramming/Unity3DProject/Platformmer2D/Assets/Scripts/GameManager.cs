@@ -53,6 +53,8 @@ public class GameManager : MonoBehaviour
     public Responner responnerOpossum;
     public Responner responnerEagle;
 
+    public Dictionary<string, Responner> dicResponners = new Dictionary<string, Responner>();
+
     public float DeathZoneY = -1;
 
     public ItemIventory itemIventory;
@@ -63,6 +65,8 @@ public class GameManager : MonoBehaviour
     public ItemDataManager itemDataManager;
     public EffectDataManager effectDataManager;
     public EffectDelegateManager effectDelegateManager;
+
+    public string Id;
 
     public void EventEatItem(ItemData itemData)
     {
@@ -125,10 +129,20 @@ public class GameManager : MonoBehaviour
         effectDataManager.InitEffectData();
         effectDelegateManager.InitEffectFunction();
         itemDataManager.InitItemDataAsset(effectDelegateManager);
-        responnerPlayer.Initialize();
-        responnerOpossum.Initialize();
-        responnerEagle.Initialize();
+
+        dicResponners = new Dictionary<string, Responner>();
+        dicResponners.Add(responnerPlayer.strPrefabName, responnerPlayer);
+        dicResponners.Add(responnerOpossum.strPrefabName, responnerOpossum);
+        dicResponners.Add(responnerEagle.strPrefabName, responnerEagle);
+
+        foreach(var reponner in dicResponners)
+        {
+            reponner.Value.Initialize();
+        }
+
         SetEagleRetrunPointCheck();
+
+        Responner responnerID = dicResponners[Id];
     }
 
     // Start is called before the first frame update

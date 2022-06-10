@@ -34,7 +34,7 @@ public class Eagle : MonoBehaviour
         switch (curAIState)
         {
             case E_AI_STATE.TRACKING:
-                if (objTarget)
+                if (objTarget.activeSelf == false)
                     SetAIState(E_AI_STATE.RETRUN);
                 break;
             case E_AI_STATE.RETRUN:
@@ -49,7 +49,7 @@ public class Eagle : MonoBehaviour
 
     public void UpdatePatrol(GameObject objA, GameObject objB)
     {
-        if (objTarget)
+        if (objTarget.activeSelf)
         {
             if (isMove == false)
             {
@@ -75,8 +75,6 @@ public class Eagle : MonoBehaviour
     {
         UpdataMove();
         UpdateAIState();
-        if (objTarget != null && objTarget.activeSelf == false) 
-            objTarget = null;
     }
 
     private void FixedUpdate()
@@ -108,7 +106,7 @@ public class Eagle : MonoBehaviour
 
     void UpdataMove()
     {
-        if (objTarget)
+        if (objTarget.activeSelf)
         {
             Vector3 vTargetPos = objTarget.transform.position;
             Vector3 vPos = this.transform.position;

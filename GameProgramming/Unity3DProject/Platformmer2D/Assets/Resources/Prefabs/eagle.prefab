@@ -105,7 +105,7 @@ MonoBehaviour:
   objResponPoint: {fileID: 0}
   objPatrolPoint: {fileID: 0}
   isMove: 0
-  curAIState: 2
+  curAIState: 1
 --- !u!114 &391734122645731316
 MonoBehaviour:
   m_ObjectHideFlags: 0
